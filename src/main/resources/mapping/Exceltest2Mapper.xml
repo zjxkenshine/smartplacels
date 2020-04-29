@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.Exceltest2Mapper">
+    <resultMap id="result" type="com.csdl.smartplacenew.information.Exceltest2">
+        <result property="id" column="id"/>
+        <result property="start" column="start" />
+        <result property="name" column="name" />
+        <result property="x" column="x" />
+        <result property="y" column="y" />
+        <result property="z" column="z" />
+        <result property="end" column="end" />
+        <result property="d" column="d" />
+
+    </resultMap>
+
+   <insert id="addExceltest2" >
+
+       insert  into exceltest2(id,start, name, x, y, z, end, d)
+
+        values (#{id},#{start},#{name},#{x},#{y},#{z},#{end},#{d})
+
+   </insert>
+
+
+
+</mapper>

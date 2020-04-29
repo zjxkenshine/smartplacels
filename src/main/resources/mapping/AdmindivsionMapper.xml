@@ -1,0 +1,106 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.AdmindivsionMapper">
+    <resultMap id="result" type="com.csdl.smartplacenew.pojo.Admindivsion">
+
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+
+        <result property="text" column="text" />
+        <result property="lon" column="lon" />
+        <result property="lat" column="lat" />
+        <result property="pictureurl" column="pictureurl" />
+        <result property="userid" column="userid" />
+
+    </resultMap>
+
+
+
+    <select id="getAdminvisionByName"  resultMap="result">
+
+        select * from admindivision where name like #{name} and userid=#{userid}
+
+    </select>
+
+
+  <select id="getByText" resultMap="result">
+
+      select *  from admindivision where text like #{text}
+
+  </select>
+
+
+    <select id="getAllAdminvision"  resultMap="result">
+
+        select *  from admindivision where userid=#{userid}
+
+    </select>
+
+    <update id="updatePictUrl">
+
+        update admindivision set pictureurl=#{pictureurl} where name=#{name}
+
+    </update>
+
+
+    <insert id="addAllAdminvision">
+
+        insert  into admindivision(name,text,lat,lon,userid) values (#{name},#{text},#{lat},#{lon},${userid})
+
+    </insert>
+
+
+    <update id="updateAllAdminvision">
+
+        update admindivision set
+
+        name=#{name},
+        text=#{text},
+        lon=#{lon},
+        lat=#{lat}
+
+        where userid=${userid} and id=${id}
+
+    </update>
+
+
+    <select id="getAdmindivsionById" resultMap="result">
+
+        select *  from admindivision where id=#{id} and userid=#{userid}
+
+    </select>
+
+
+    <select id="getAdmindivsionByNameAndUserId" resultMap="result">
+
+        select *  from admindivision
+        where
+
+            userid=${userid}
+
+            <if test="name!=null">
+
+              and     name like #{name}
+
+            </if>
+
+
+
+
+
+    </select>
+
+
+   <delete id="delAdmindivsionByIdAndUserid">
+
+       delete  from admindivision where userid=${userid}
+
+       <if test="id!=null">
+           and id=${id}
+
+       </if>
+
+   </delete>
+</mapper>

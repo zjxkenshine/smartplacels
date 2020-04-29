@@ -1,0 +1,36 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.Count2Mapper">
+
+    <select id="addCount" statementType="CALLABLE" useCache="false">
+        {call addCount(
+			#{userId,mode=IN},
+			#{date,mode=IN},
+			#{code,mode=OUT,jdbcType=INTEGER}
+		)}
+    </select>
+
+    <select id="getSevenCounts" resultType="com.csdl.smartplacenew.pojo.Count2">
+        select
+            id,`count`,user_id,date_format(c.date, '%Y-%m-%d') as `date`
+        from
+            count2 c
+        where
+            c.user_id=#{userId}  and c.date>#{date}
+        order by
+            c.date desc
+    </select>
+
+    <select id="getTotalCounts" resultType="int">
+        select
+            sum(`count`)
+        from
+            count2
+        where
+            user_id=#{userId}
+    </select>
+
+
+</mapper>

@@ -1,0 +1,127 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.PictureMapper">
+    <resultMap id="result" type="com.csdl.smartplacenew.pojo.Picture">
+        <result property="id" column="id"/>
+        <result property="url" column="url" />
+        <result property="platenumberid" column="platenumberid" />
+        <result property="roadnumberid" column="roadnumberid" />
+        <result property="villagenumberid" column="villagenumberid" />
+        <result property="scenicspotid" column="scenicspotid" />
+        <result property="roadid" column="roadid" />
+        <result property="status" column="status" />
+        <result property="userid" column="userid" />
+        <result property="maintrecordsid" column="maintrecordsid" />
+    </resultMap>
+
+
+    <insert id="addPicture">
+
+        insert into picture (
+        url,platenumberid,roadnumberid,villagenumberid,scenicspotid,roadid,status,userid,maintrecordsid)
+        values
+         (#{url}, #{platenumberid},#{roadnumberid},#{villagenumberid},#{scenicspotid},#{roadid},1,#{userid},#{maintrecordsid});
+
+   </insert>
+
+
+    <select id="getPictureById" resultMap="result">
+
+        select *  from picture where url=#{url} and status=1
+    </select>
+
+
+
+    <select id="getPictureByPlatenumberid" resultType="string">
+
+        select url  from picture where platenumberid=#{platenumberid} and status=1 and userid=#{userid}
+    </select>
+
+
+    <select id="getPictureByRoadnumberid" resultType="string">
+
+        select url  from picture where roadnumberid=#{roadnumberid} and status=1 and userid=#{userid}
+    </select>
+
+
+    <select id="getPictureByVillagenumberid" resultType="string">
+
+        select url  from picture where villagenumberid=#{villagenumberid} and status=1 and userid=#{userid}
+    </select>
+
+
+    <select id="getPictureByScenicspotid" resultType="string">
+
+        select url  from picture where scenicspotid=#{scenicspotid}  and status=1 and userid=#{userid}
+    </select>
+
+
+    <select id="getPictureByRoadid" resultType="string">
+
+        select url  from picture where roadid=#{roadid} and status=1 and userid=#{userid}
+
+    </select>
+
+
+    <select id="getPictureByMaintreid" resultType="string">
+
+        select url  from picture where maintrecordsid=#{maintrecordsid} and status=1 and userid=#{userid}
+
+    </select>
+
+
+
+
+
+
+
+
+    <update id="delPictureByPlatenumberid" >
+
+             update picture set status=0 where platenumberid=#{platenumberid} and userid=#{userid}
+
+
+    </update>
+
+
+    <update id="delPictureByRoadnumberid">
+
+         update picture set status=0 where roadnumberid=#{roadnumberid} and userid=#{userid}
+
+    </update>
+
+
+    <update id="delPictureByVillagenumberid">
+
+       update picture set status=0 where villagenumberid=#{villagenumberid}  and userid=#{userid}
+
+    </update>
+
+
+    <update id="delPictureByScenicspotid">
+
+    update picture set status=0 where scenicspotid=#{scenicspotid} and userid=#{userid}
+
+    </update>
+
+
+    <update id="delPictureByRoadid">
+
+    update picture set status=0 where roadid=#{roadid} and userid=#{userid}
+
+    </update>
+
+
+
+    <update id="delPictureByMaintrecordsid">
+
+    update picture set status=0 where maintrecordsid=#{maintrecordsid} and userid=#{userid}
+
+    </update>
+
+
+
+
+</mapper>

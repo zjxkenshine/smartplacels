@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>地名文化</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .navigation {
+        width: 100%;
+        height: 50px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background: #d3d3d3;
+        display: flex;
+        align-items: center;
+    }
+
+    .navigation div {
+        width: 33%;
+        height: 50px;
+        line-height: 50px;
+        box-sizing: border-box;
+        font-size: 20px;
+    }
+
+    .navigation .back {
+        padding: 0 10px;
+    }
+
+    .navigation .name {
+        text-align: center;
+    }
+
+    .body {
+        padding: 50px 0 0;
+    }
+
+    .title {
+        width: 100%;
+        height: 50px;
+        line-height: 40px;
+        border-top: 1px solid #0000002a;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.534);
+        padding: 5px 10px;
+        box-sizing: border-box;
+        font-size: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .text{
+        padding: 10px;
+        display: none;
+    }
+    .texttitle{
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 16px 0;
+    }
+    .textbody{
+        text-indent:32px;
+    }
+    .min{
+        text-align: center;
+        font-size: 12px;
+    }
+    .jt{
+        transform: rotate(-90deg);
+    }
+
+    ul {
+        padding: 10px;
+        display: none;
+    }
+    .two{
+        display: none;
+    }
+    .three{
+        display: none;
+    }
+</style>
+
+<body>
+
+<span style="display: none" name="dmwhvillagenameName"  id="Name">[[${villagenameKK}]]</span>
+<span style="display: none" id="text">   [[${villagenumberSYMinsuwenhuaText}]]</span>
+
+<span style="display: none" id="Chuantongjianzhutext">   [[${villagenumberSYChuantongjianzhuText}]]</span>
+<span style="display: none" id="Feiyiwenhuatext">   [[${villagenumberSYFeiyiwenhuyaText}]]</span>
+
+<span style="display: none" id="cultuinsurunitId">   [[${cultuinsurunitId}]]</span>
+
+    <div class="navigation">
+        <div class="back">
+            <a href="/API/LS/Villagenumber/tt" style="text-decoration:none;color: black"><</a> </div>
+        <div class="name">
+                地名文化
+        </div>
+        <div>
+
+        </div>
+    </div>
+    <div class="body">
+        <div class="title one">
+            <span>
+            传统建筑
+            </span>
+            <span class="jt jt1"><</span>
+        </div>
+        <div class="text body1">
+
+        </div>
+        <div class="title two">
+            <span>
+            非遗项目
+            </span>
+            <span class="jt jt2"><</span>
+        </div>
+        <div class="text body2">
+
+        </div>
+        <div class="title three">
+            <span>
+            民俗文化
+            </span>
+            <span class="jt jt3"><</span>
+        </div>
+        <div class="text body3">
+
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    var ctjztext = $('#Chuantongjianzhutext').text()
+    var fywhtext = $('#Feiyiwenhuatext').text()
+    var text = $('#text').text()
+    if(fywhtext == '   '){
+        $('.two').css('display','none')
+    }
+    else {
+        $('.two').css('display','flex')
+    }
+    if(text == '   '){
+        $('.three').css('display','none')
+    }
+    else {
+        $('.three').css('display','flex')
+    }
+    var id = $('#cultuinsurunitId').text().trim();
+    $.ajax({
+        url: "http://songyang.zjdmwh.cn:1240/API/LS/Allinforma/getInfoById?seniorkey=11&id="+id+"&userid=15",
+        type:'GET',
+        success:function(data){
+            $('.body1').html(data)
+        },
+    })
+  //  $('.body1').html(ctjztext)
+    $('.body2').html(fywhtext)
+    $('.body3').html(text)
+    var isTrue1 = false;
+    var isTrue2 = false;
+    var isTrue3 = false;
+    $('.one').on('click', function () {
+        if(isTrue1){
+            isTrue1 = false;
+            $('.jt1').css("transform", "rotate(-90deg)")
+        }else {
+            isTrue1 = true;
+            $('.jt1').css("transform", "rotate(-270deg)")
+        }
+        $('.body1').toggle()
+    })
+    $('.two').on('click', function () {
+        if(isTrue2){
+            isTrue2 = false;
+            $('.jt2').css("transform", "rotate(-90deg)")
+        }else {
+            isTrue2 = true;
+            $('.jt2').css("transform", "rotate(-270deg)")
+        }
+        $('.body2').toggle()
+    })
+    $('.three').on('click', function () {
+        if(isTrue3){
+            isTrue3 = false;
+            $('.jt3').css("transform", "rotate(-90deg)")
+        }else {
+            isTrue3 = true;
+            $('.jt3').css("transform", "rotate(-270deg)")
+        }
+        $('.body3').toggle()
+    })
+</script>
+
+</html>

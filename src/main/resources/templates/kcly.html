@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>古村流韵</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .quanjing {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .voice {
+        width: 27px;
+        height: 50px;
+        position: absolute;
+        right: 0;
+        top: 200px;
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+        line-height: 25px;
+        border-radius: 5px 0 0 5px;
+        background: rgba(0, 0, 0, .3);
+    }
+
+    .popups {
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, .7);
+        position: absolute;
+        z-index: 99;
+        top: 0;
+        left: 0;
+        display: none;
+        padding: 10px;
+        box-sizing: border-box;
+        overflow: auto;
+    }
+
+    .close {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        color: #fff;
+        text-align: center;
+        line-height: 30px;
+        float: right;
+    }
+
+    .popups .body {
+        width: 100%;
+        margin-top: 20px;
+        word-wrap: break-word;
+        word-break: break-all;
+        color: #fff;
+        text-indent: 32px;
+    }
+</style>
+
+<body>
+
+<span style="display: none" id="Name">[[${villagenameKK}]]</span>
+
+<!--<span style="display: none" id="Text">[[${villagenumberSYText}]]</span>-->
+
+
+    <iframe class="quanjing" src="" frameborder="0"></iframe>
+    <div class="voice">
+        语音
+    </div>
+    <div class="popups">
+        <!--<div class="close">×</div>-->
+        <!--<div class="body">-->
+
+        <!--</div>-->
+        <audio id='audio' style="display: none;" src="">
+            您的浏览器不支持 audio 标签。
+        </audio>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    var name = $('#Name').text()
+    var chinese = $("#audio")[0];
+
+    if(name.substring(0,3)=='陈家铺'){
+
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70698');
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575703674672.mp3')
+    }
+
+    if(name == '陈家铺先锋书局'){
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70698');
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575703674672.mp3')
+    }
+
+
+    if(name == '横坑村'){
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70701');
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575527316660.mp3')
+    }
+
+    if(name == '酉田村'){
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70719');
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575527305888.mp3')
+    }
+
+    if(name == '酉田叶氏宗祠'){
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70719');
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575527305888.mp3')
+    }
+
+    if(name=='玉岩村'){
+
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70722');
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575526411905.mp3')
+
+
+    }
+
+    if(name=='杨家堂村'){
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70718');
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575527110745.mp3')
+
+
+    }
+
+    if(name=='沿坑岭头村'){
+
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70717');
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575527169711.mp3')
+
+    }
+
+    if(name=='雅溪口村'){
+
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70716');
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575629251977.mp3')
+
+
+    }
+
+    if(name=='西坑村'){
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70714');
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575527181564.mp3')
+
+    }
+
+    if(name=='吴弄村'){
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70713');
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575527293054.mp3')
+
+    }
+
+
+    if(name=='上田村'){
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70712');
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575526985839.mp3')
+
+
+    }
+
+    if(name=='山下阳村'){
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70710');
+
+
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575629221721.mp3')
+    }
+
+    if(name=='平田村'){
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70709');
+
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575527195247.mp3')
+
+    }
+
+
+    if(name=='南岱村'){
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70708');
+
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575527079538.mp3')
+
+    }
+
+    if(name=='石仓片区'){
+
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70707');
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575527230615.mp3')
+
+    }
+
+    if(name.substring(0,3)=='界首村'){
+
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70703');
+
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575527128870.mp3')
+
+    }
+
+    if(name=='横樟村'){
+
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70702');
+
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575527260562.mp3')
+
+    }
+
+    if(name=='官岭村'){
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70700');
+
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575629197730.mp3')
+
+
+    }
+
+    if(name=='吊坛村'){
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70699');
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575527096777.mp3')
+
+    }
+
+    if(name=='蔡宅村'){
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70696');
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575527066419.mp3')
+
+    }
+
+    if(name=='安岱后村'){
+        $('.quanjing').attr('src','https://view.vra.cn/#/panoview/70695');
+        $('#audio').attr('src','http://songyang.vrplanner.cn:80/API/LS/res/video/mandarin/villagenumber/1575527142727.mp3')
+
+    }
+
+
+
+
+    $('.voice').on('click', function () {
+        if (chinese.paused) { /*如果已经暂停*/
+            chinese.play(); /*播放*/
+        } else {
+            chinese.pause();/*暂停*/
+        }
+    })
+
+</script>
+
+</html>

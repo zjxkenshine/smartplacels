@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.RoadNumberNaUrMapper">
+    <resultMap id="result" type="com.csdl.smartplacenew.two.RoadNumberNaUr">
+
+        <result property="name" column="name" />
+
+        <result property="url" column="url" />
+
+    </resultMap>
+
+
+    <select id="getNameAndUrl" resultMap="result">
+
+        select name ,url from smartplacename.roadnumber where status=1 and userid=#{userid}
+
+    </select>
+
+
+
+
+</mapper>

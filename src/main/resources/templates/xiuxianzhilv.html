@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>地名文化</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .navigation {
+        width: 100%;
+        height: 50px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background: #d3d3d3;
+        display: flex;
+        align-items: center;
+    }
+
+    .navigation div {
+        width: 33%;
+        height: 50px;
+        line-height: 50px;
+        box-sizing: border-box;
+        font-size: 20px;
+    }
+
+    .navigation .back {
+        padding: 0 10px;
+    }
+
+    .navigation .name {
+        text-align: center;
+    }
+
+    .body {
+        padding: 50px 0 0;
+    }
+
+    .title {
+        width: 100%;
+        height: 50px;
+        line-height: 40px;
+        border-top: 1px solid #0000002a;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.534);
+        padding: 5px 10px;
+        box-sizing: border-box;
+        font-size: 18px;
+    }
+
+    .textbody{
+        padding: 10px;
+        display: none;
+    }
+</style>
+
+<body>
+
+<span style="display: none" id="xiuxianxianlu">[[${xiuxianxianlu}]]</span>
+<span style="display: none" id="songyangsongsezhilv">[[${songyangsongsezhilv}]]</span>
+<span style="display: none" id="xiangcunzhilv">[[${xiangcunzhilv}]]</span>
+
+
+    <div class="navigation">
+        <div class="back">
+            <a href="/API/LS/Villagenumber/tt" style="text-decoration:none;color: black"><</a>  </div>
+        <div class="name">
+                休闲之旅
+        </div>
+    </div>
+    <div class="body">
+        <div class="title title1">休闲线路</div>
+        <div class="textbody body1">
+
+        </div>
+        <div class="title title2">红色之旅</div>
+        <div class="textbody body2">
+
+        </div>
+        <div class="title title3">乡村之旅</div>
+        <div class="textbody body3">
+
+        </div>
+        <div class="title title4">特色民宿</div>
+        <div class="textbody body4">
+
+        </div>
+        <div class="title title5">农家乐</div>
+        <div class="textbody body5">
+
+        </div>
+        <div class="title title6">文创产品</div>
+        <div class="textbody body6">
+
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    var text1 = $('#xiuxianxianlu').text()
+    $('.body1').html(text1)
+    var text2 = $('#songyangsongsezhilv').text()
+    $('.body2').html(text2)
+    var text3 = $('#xiangcunzhilv').text()
+    $('.body3').html(text3)
+
+    $('.title1').on('click', function () {
+        $('.body1').toggle()
+    })
+    $('.title2').on('click', function () {
+        $('.body2').toggle()
+    })
+    $('.title3').on('click', function () {
+        $('.body3').toggle()
+    })
+    $('.title4').on('click', function () {
+        $('.body4').toggle()
+    })
+    $('.title5').on('click', function () {
+        $('.body5').toggle()
+    })
+    $('.title6').on('click', function () {
+        $('.body6').toggle()
+    })
+
+</script>
+
+</html>

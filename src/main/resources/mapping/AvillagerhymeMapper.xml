@@ -1,0 +1,147 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.AvillagerhymeMapper">
+    <resultMap id="result" type="com.csdl.smartplacenew.information.Avillagerhyme">
+        <result property="id" column="id"/>
+        <result property="name" column="name" />
+        <result property="pictureurl" column="pictureurl" />
+        <result property="status" column="status" />
+        <result property="userid" column="userid" />
+
+        <result property="lonandlat" column="lonandlat" />
+        <result property="link" column="link" />
+    </resultMap>
+
+    <insert id="addAvillagerhyme" >
+
+        insert into avillagerhyme(
+        name,
+         pictureurl,
+         status,
+         lonandlat,
+         link,
+         userid)
+          values (
+          #{name},
+          #{pictureurl},
+          #{status},
+          #{lonAndLat},
+          #{link},
+          #{userid})
+
+    </insert>
+
+
+    <select id="selectAvillagerhymeByName" resultMap="result">
+
+        select *  from avillagerhyme
+
+        where
+        <if test="name!=null">
+            name like #{name} and
+        </if>
+
+        status=1
+
+        and userid=#{userid}
+
+
+    </select>
+
+
+    <select id="selectAvillagerhymeByName2" resultMap="result">
+
+        select *  from avillagerhyme
+
+        where
+        <if test="name!=null">
+            name like #{name} and
+        </if>
+
+        status=1
+
+        and userid=#{userid}
+
+
+
+    </select>
+
+
+
+
+    <update id="delAvillagerhyme">
+
+        update avillagerhyme set status=-1 where id=#{id}  and userid=#{userid}
+
+    </update>
+
+
+    <update id="updateAvillagerhyme">
+
+
+        update  avillagerhyme set
+        name=#{name} ,
+         pictureurl=#{pictureurl},
+          lonandlat=#{lonAndLat}
+          <if test="link!=null and link!=''">
+          , link=#{link}
+          </if>
+          where id=#{id}  and userid=#{userid}
+
+    </update>
+
+
+    <select id="getAvillagerhymeCount" resultType="integer">
+
+
+        select count(*)  from avillagerhyme
+
+        where
+
+            <if test="name!=null">
+                name like #{name} and
+
+            </if>
+
+       status=1
+
+        and userid=#{userid}
+
+    </select>
+
+
+
+    <select id="getAvillagerhymeById" resultMap="result">
+
+        select *  from avillagerhyme where id=#{id} and status=1 and userid=#{userid}
+
+    </select>
+
+    <select id="getAvillagerhymeById2" resultMap="result">
+
+        select *  from avillagerhyme where id=#{id} and status=1     and userid=#{userid}
+
+
+    </select>
+
+    <select id="getAvillagerhymeByMaxId" resultMap="result">
+
+        select *  from avillagerhyme where id=(select max(id)  from avillagerhyme where status=1
+         and userid=#{userid}) and status=1   and userid=#{userid}
+
+    </select>
+
+    <select id="getAvillagerhymeByName" resultMap="result">
+
+        select *  from avillagerhyme where name like #{name} and userid=#{userid}
+
+    </select>
+
+    <select id="getAvillagerhymeByName2" resultMap="result">
+
+        select *  from avillagerhyme where name like #{name} and status=1
+
+    </select>
+</mapper>

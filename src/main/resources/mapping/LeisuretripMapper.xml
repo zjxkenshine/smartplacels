@@ -1,0 +1,134 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.LeisuretripMapper">
+    <resultMap id="result" type="com.csdl.smartplacenew.information.Leisuretrip">
+        <result property="id" column="id"/>
+        <result property="name" column="name" />
+        <result property="pictureurl" column="pictureurl" />
+        <result property="status" column="status" />
+        <result property="userid" column="userid" />
+
+    </resultMap>
+
+    <insert id="addLeisuretrip" >
+
+        insert into leisuretrip(name, pictureurl, status,userid)  values (#{name},#{pictureurl},#{status},#{userid})
+
+    </insert>
+
+
+    <select id="selectLeisuretripByName" resultMap="result">
+
+        select *  from leisuretrip
+
+        where
+        <if test="name!=null">
+            name like #{name} and
+        </if>
+
+        status=1
+
+        and userid=#{userid}
+
+
+    </select>
+
+
+    <select id="selectLeisuretripByName2" resultMap="result">
+
+        select *  from leisuretrip
+
+        where
+        <if test="name!=null">
+            name like #{name} and
+        </if>
+
+        status=1
+
+        and userid=#{userid}
+
+
+    </select>
+
+
+    <update id="delLeisuretrip">
+
+        update leisuretrip set status=-1 where id=#{id}    and userid=#{userid}
+
+    </update>
+
+
+    <update id="updateLeisuretrip">
+
+
+        update  leisuretrip set name=#{name} , pictureurl=#{pictureurl} where id=#{id}    and userid=#{userid}
+
+    </update>
+
+
+    <select id="getLeisuretripCount" resultType="integer">
+
+
+        select count(*)  from leisuretrip
+
+        where
+
+        <if test="name!=null">
+            name like #{name} and
+
+        </if>
+
+        status=1
+        and userid=#{userid}
+
+    </select>
+
+
+
+    <select id="getLeisuretripById" resultMap="result">
+
+        select *  from leisuretrip where id=#{id} and status=1 and userid=#{userid}
+
+    </select>
+
+
+    <select id="getLeisuretripById2" resultMap="result">
+
+        select *  from leisuretrip where id=#{id} and status=1     and userid=#{userid}
+
+    </select>
+
+    <select id="getLeisuretripByMaxId" resultMap="result">
+
+        select *  from leisuretrip where id=(select max(id)  from leisuretrip where status=1  and userid=#{userid})
+
+         and status=1   and userid=#{userid}
+
+    </select>
+
+
+    <select id="getLeisuretripByNameAndUserid" resultMap="result">
+
+        select *  from leisuretrip where
+
+        <if test="name!=null">
+
+            name like #{name} and
+
+        </if>
+        status=1
+
+        and
+
+        userid=#{userid}
+
+        order by id asc
+
+
+
+    </select>
+
+
+</mapper>

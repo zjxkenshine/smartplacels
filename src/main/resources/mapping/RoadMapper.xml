@@ -1,0 +1,262 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.RoadMapper">
+    <resultMap id="result" type="com.csdl.smartplacenew.pojo.Road">
+        <result property="id" column="id"/>
+        <result property="streetnumber" column="streetnumber" />
+        <result property="name" column="name" />
+        <result property="lonandlat" column="lonandlat" />
+        <result property="type" column="type" />
+        <result property="codeaddress" column="codeaddress" />
+        <result property="voiceurl" column="voiceurl" />
+        <result property="status" column="status" />
+
+        <result property="textofmater" column="textofmater" />
+        <result property="size" column="size" />
+        <result property="yearofesent" column="yearofesent" />
+        <result property="mainteunit" column="mainteunit" />
+        <result property="numofmaint" column="numofmaint" />
+        <result property="maintperiod" column="maintperiod" />
+        <result property="maintcost" column="maintcost" />
+        <result property="maintaccounts" column="maintaccounts" />
+
+        <result property="mandarinword" column="mandarinword" />
+        <result property="englishword" column="englishword" />
+        <result property="userid" column="userid" />
+        <result property="sharelinks" column="sharelinks" />
+    </resultMap>
+
+
+    <insert id="addRoad">
+
+        insert into road (streetnumber,name,lonandlat,type,codeaddress,voiceurl,status,
+           textofmater,size,yearofesent,mainteunit,numofmaint,maintperiod,maintcost,maintaccounts,userid,sharelinks,englishword
+        ) values (#{streetnumber},
+        #{name},#{lonandlat},#{type},#{codeaddress},#{voiceurl},1,
+      #{textofmater},#{size}, #{yearofesent}, #{mainteunit}, #{numofmaint},#{maintperiod},#{maintcost},#{maintaccounts},
+      #{userid},#{sharelinks},#{englishword}
+
+        );
+
+   </insert>
+
+    <select id="getRoadById" resultMap="result">
+
+        select *  from road where id=#{id} and userid=#{userid}
+
+    </select>
+
+    <update id="updateRoadStatus">
+
+        update road set status=0 where  id=#{id} and userid=#{userid}
+
+    </update>
+
+
+    <update id="updateRoadById" >
+
+        update road set
+        streetnumber =#{streetnumber},
+         name =#{name},
+         lonandlat=#{lonandlat},
+         type=#{type},
+         codeaddress=#{codeaddress},
+         voiceurl=#{voiceurl},
+
+         textofmater=#{textofmater},
+         size=#{size},
+         yearofesent=#{yearofesent},
+         mainteunit=#{mainteunit},
+         numofmaint=#{numofmaint},
+         maintperiod=#{maintperiod},
+         maintcost=#{maintcost},
+         maintaccounts=#{maintaccounts},
+      sharelinks=#{sharelinks},
+      englishword=#{englishword}
+
+         where id=#{id} and userid=#{userid}
+
+    </update>
+
+
+    <select id="getRoadByKey"  resultMap="result">
+
+        select *  from road
+
+        where
+
+        status=1
+        and
+        userid=#{userid}
+
+        <if test="key!=null">
+           and  name like #{key} and status=1 or type like #{key} and status=1
+        </if>
+        order by  id desc
+    </select>
+
+
+
+    <select id="getRoadByKeyCount"  resultType="integer">
+
+        select count(*)  from road
+
+        where
+
+        status=1
+
+        and
+
+        userid=#{userid}
+
+        <if test="key!=null">
+            and  name like #{key} and status=1 or type like #{key} and status=1
+        </if>
+
+    </select>
+
+
+    <insert id="addMaintrecordsOfRoad">
+
+        insert into maintrecords (mainttype, number, maintcontent, maintcompany, contacts, contactsnum, cost, mainttime,userid)
+        values (#{mainttype},#{number},#{maintcontent},#{maintcompany},#{contacts},#{contactsnum},#{cost},#{mainttime},#{userid});
+
+    </insert>
+
+
+
+    <select id="getRoadIdByName" resultType="integer">
+
+        select id from road where lonandlat =#{lonandlat} and status=1 and userid=#{userid}
+
+    </select>
+
+    <select id="getRoadIdByName2" resultType="integer">
+
+        select id from road where name =#{name} and status=1
+
+    </select>
+
+    <select id="getLonAndLat" resultType="string">
+
+        select lonandlat from road where status=1 and userid=#{userid}
+
+    </select>
+
+
+    <select id="getRoadByLonAndLat" resultMap="result">
+
+        select *  from road where lonandlat=#{lonandlat} and  status=1 and userid=#{userid}
+
+    </select>
+
+
+
+    <select id="getRoadByUrl" resultMap="result">
+
+        select *  from road where codeaddress=#{url} and  status=1 and userid=#{userid}
+
+    </select>
+
+
+
+    <insert id="addCountOfRoad">
+
+        insert into count ( name, count2, monthlyvisits,type,status,yearlyvisits,userid)values
+        (#{name},#{count2},#{monthlyvisits},#{type},#{status},
+        #{yearlyvisits},#{userid});
+
+    </insert>
+
+
+    <select id="getRoadByName" resultMap="result">
+
+        select *  from road where name=#{name} and status=1 and userid=#{userid}
+
+    </select>
+
+
+    <update id="updateMandarinword">
+
+        update road
+        set mandarinword=#{word}
+         where id= #{id}
+         and status=1
+         and userid=#{userid}
+
+
+    </update>
+
+
+
+    <update id="updateEnglishword">
+
+        update road
+        set englishword=#{word}
+       where id= #{id}
+         and status=1
+   and userid=#{userid}
+
+    </update>
+
+    <select id="getUrlById" resultType="string">
+
+        select codeaddress from road where  id=#{id}    and userid=#{userid}
+
+    </select>
+
+
+    <select id="getIdByUrl" resultType="integer">
+
+        select id from  road where codeaddress=#{url} and status=1    and userid=#{userid}
+
+    </select>
+
+
+    <select id="getMaxId" resultType="integer">
+
+        select max(id) from road where status=1 and userid=#{userid}
+
+
+    </select>
+
+
+    <select id="getMinId" resultType="integer">
+
+        select min(id) from road where status=1 and userid=#{userid}
+
+    </select>
+
+
+    <update id="addLonAndLatByUrl" >
+
+        update road set lonandlat=#{LonAndLat} where codeaddress=#{url} and userid=#{userid}
+
+    </update>
+
+
+    <select id="getMaxIdByAll" resultType="integer">
+
+        select max(id) from road where status=1 and userid=#{userid}
+
+
+    </select>
+
+
+    <select id="getRoadByMaxId" resultMap="result">
+
+        select *  from  road where status=1 and id=(select max(id) from road where status=1 and userid=#{userid}) and userid=#{userid}
+
+
+    </select>
+
+
+    <select id="getNameAndUrl" resultMap="result">
+
+        select name ,codeaddress from road where status=1 and userid=#{userid}
+
+    </select>
+
+</mapper>

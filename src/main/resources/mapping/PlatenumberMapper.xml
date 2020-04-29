@@ -1,0 +1,318 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.PlatenumberMapper">
+    <resultMap id="result" type="com.csdl.smartplacenew.pojo.Platenumber">
+        <result property="id" column="id"/>
+        <result property="name" column="name" />
+        <result property="lonandlat" column="lonandlat" />
+        <result property="type" column="type" />
+        <result property="url" column="url" />
+        <result property="voiceurl" column="voiceurl" />
+        <result property="status" column="status" />
+
+        <result property="textofmater" column="textofmater" />
+        <result property="size" column="size" />
+        <result property="yearofesent" column="yearofesent" />
+        <result property="mainteunit" column="mainteunit" />
+        <result property="numofmaint" column="numofmaint" />
+        <result property="maintperiod" column="maintperiod" />
+        <result property="maintcost" column="maintcost" />
+        <result property="maintaccounts" column="maintaccounts" />
+
+        <result property="mandarinword" column="mandarinword" />
+        <result property="englishword" column="englishword" />
+        <result property="userid" column="userid" />
+        <result property="sharelinks" column="sharelinks" />
+        <result property="orderindex" column="orderindex" />
+    </resultMap>
+
+
+    <insert id="addPlateNumber" >
+
+        insert into platenumber (name,lonandlat,type,url,voiceurl,status,
+        textofmater,size,yearofesent,mainteunit,numofmaint,maintperiod,maintcost,maintaccounts,userid,sharelinks,englishword)
+         values (
+        #{name},#{lonandlat},#{type},#{url},#{voiceurl},1,
+         #{textofmater},#{size}, #{yearofesent}, #{mainteunit},
+          #{numofmaint},#{maintperiod},#{maintcost},#{maintaccounts},#{userid},
+                  #{sharelinks},#{englishword}
+
+        );
+
+   </insert>
+
+    <select id="getNumberplateById" resultMap="result">
+
+        select *  from platenumber where id=#{id} and userid=#{userid}
+
+    </select>
+
+    <update id="updateNumberplateStatus">
+
+        update platenumber set status=0 where  id=#{id}  and userid=#{userid}
+
+    </update>
+
+
+    <update id="updateNumberplateById" >
+
+        update platenumber
+        set name =#{name},
+        lonandlat=#{lonandlat},
+        type=#{type},
+        url=#{url},
+        voiceurl=#{voiceurl},
+
+         textofmater=#{textofmater},
+         size=#{size},
+         yearofesent=#{yearofesent},
+         mainteunit=#{mainteunit},
+         numofmaint=#{numofmaint},
+         maintperiod=#{maintperiod},
+         maintcost=#{maintcost},
+         maintaccounts=#{maintaccounts},
+          sharelinks=#{sharelinks},
+          englishword=#{englishword}
+
+         where id=#{id} and userid=#{userid}
+
+    </update>
+
+
+    <select id="getNumberplateByKey"  resultMap="result">
+
+        select *  from platenumber
+
+        where
+        status=1
+
+        and userid=#{userid}
+
+        <if test="key!=null">
+           and name like #{key} and status=1 or type like #{key}
+
+        </if>
+
+
+         order by id desc
+
+    </select>
+
+
+
+    <select id="getNumberplateByKeyCount"  resultType="integer">
+
+        select count(*)  from platenumber
+
+        where
+
+        status=1
+        and
+        userid=#{userid}
+
+        <if test="key!=null">
+            and name like #{key} and status=1 or type like #{key} and status=1
+        </if>
+
+    </select>
+
+
+    <select id="getNameCount" resultType="Integer">
+
+
+     select count(*)  from platenumber  where name =#{name} and status=1 and userid=#{userid}
+
+    </select>
+
+    
+    <select id="getPlateNumber" resultMap="result">
+
+        select *  from platenumber where status=1  and userid=#{userid}
+    </select>
+
+
+    <insert id="addMaintrecordsOfPlateNum" >
+
+        insert into maintrecords ( mainttype, number, maintcontent, maintcompany, contacts, contactsnum, cost, mainttime,userid)
+        values (#{mainttype},#{number},#{maintcontent} ,#{maintcompany},#{contacts},#{contactsnum},#{cost},#{mainttime},#{userid})
+
+
+    </insert>
+
+
+    <select id="getPlateNumIdByName" resultType="integer">
+
+        select  id from platenumber where lonandlat = #{lonandlat} and status=1 and userid=#{userid}
+
+    </select>
+
+
+
+    <select id="getPlateNumIdByName2" resultType="integer">
+
+        select  id from platenumber where name = #{name} and status=1
+
+    </select>
+
+    <select id="getLonAndLat" resultType="string">
+
+        select lonandlat from platenumber where status=1 and userid=#{userid}
+
+    </select>
+    
+    
+    <select id="getPlatenuByLonAndLat"  resultMap="result" >
+
+        select *  from platenumber where lonandlat =#{lonAndLat} and status=1 and userid=#{userid}
+
+
+    </select>
+
+
+    <select id="getPlatenuByUrl" resultMap="result">
+
+         select *  from platenumber where url =#{url} and status=1  and userid=#{userid}
+
+    </select>
+
+
+
+    <select id="getPlateNumByUrl"  resultMap="result" >
+
+        select *  from platenumber where url =#{url} and status=1  and userid=#{userid}
+
+    </select>
+
+
+    <insert id="addPlateNumCount">
+
+        insert into count ( name, count2, monthlyvisits,type,status,yearlyvisits,userid)values
+        (#{name},#{count2},#{monthlyvisits},#{type},#{status},#{yearlyvisits},#{userid});
+
+    </insert>
+
+
+
+    <select id="getPlateNumByName" resultMap="result">
+
+        select *  from platenumber where name=#{name}  and status=1 and userid=#{userid}
+
+    </select>
+
+
+    <update id="updateMandarinword">
+
+        update platenumber
+        set mandarinword=#{word}
+         where id = #{id}
+         and status=1
+and userid=#{userid}
+
+    </update>
+
+
+
+    <update id="updateEnglishword">
+
+        update platenumber
+        set englishword=#{word}
+         where id = #{id}
+         and status=1
+and userid=#{userid}
+
+    </update>
+
+
+    <select id="getUrlById" resultType="string">
+
+        select url from  platenumber where id=#{id} and status=1 and userid=#{userid}
+
+    </select>
+
+    <select id="getIdByUrl" resultType="integer">
+
+        select id from  platenumber where url=#{url} and status=1 and userid=#{userid}
+
+    </select>
+
+
+    <select id="getMaxId" resultType="integer">
+
+        select max(id) from platenumber where status=1 and userid=#{userid}
+
+    </select>
+
+
+    <select id="getMinId" resultType="integer">
+
+        select min(id) from platenumber where status=1 and userid=#{userid}
+
+    </select>
+
+    <select id="getPlateNumberByLonAndLat" resultMap="result">
+
+        select *  from platenumber where lonandlat=#{lonAndlat} and status=1 and userid=#{userid}
+
+    </select>
+
+
+    <update id="addLonAndLatByUrl">
+
+        update platenumber set lonandlat=#{LonAndLat} where url=#{url}  and userid=#{userid} and status=1
+
+    </update>
+
+    <select id="getMaxIdByAll" resultType="integer">
+
+        select max(id) from platenumber where status=1 and userid=#{userid}
+
+    </select>
+
+
+    <select id="getPlateNumberByMaxId" resultMap="result">
+
+        select * from platenumber where status=1 and id=(select max(id)  from platenumber where status=1 and userid=#{userid}) and userid=#{userid}
+
+    </select>
+
+
+    <select id="getNameAndUrl" resultMap="result">
+
+        select name ,url from platenumber where status=1 and userid=#{userid}
+
+    </select>
+
+
+    <select id="getNameByUrlAndUserId" resultType="string">
+
+        select name from roadnumber where url=#{url} and userid=#{userid}
+
+    </select>
+
+    <select id="getOrderByUseriId" resultType="integer">
+
+        select orderindex from platenumber where userid=#{userid} and url=#{url} and status=1
+
+    </select>
+
+
+    <select id="getMaxOrderByUseriId" resultType="integer">
+
+        select max(orderindex)  from platenumber where userid=#{userid} and status=1
+
+    </select>
+
+    <select id="getMinOrderByUseriId" resultType="integer">
+
+         select min(orderindex)  from platenumber where userid=#{userid} and status=1
+    </select>
+
+    <select id="getUrlByOrderindexByUserId" resultType="string">
+
+        select url from platenumber where orderindex=#{orderindex} and userid=#{userid} and status=1
+
+    </select>
+
+</mapper>

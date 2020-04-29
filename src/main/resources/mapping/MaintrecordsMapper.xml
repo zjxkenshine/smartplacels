@@ -1,0 +1,86 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.MaintrecordsMapper">
+    <resultMap id="result" type="com.csdl.smartplacenew.pojo.Maintrecords">
+        <result property="id" column="id"/>
+
+        <result property="mainttype" column="mainttype" />
+        <result property="number" column="number" />
+        <result property="maintcontent" column="maintcontent" />
+        <result property="maintcompany" column="maintcompany" />
+        <result property="contacts" column="contacts" />
+        <result property="contactsnum" column="contactsnum" />
+        <result property="cost" column="cost" />
+        <result property="mainttime" column="mainttime" />
+        <result property="userid" column="userid" />
+
+    </resultMap>
+
+
+
+    <select id="findAllMaintrecores"  resultMap="result">
+
+
+        select *  from maintrecords
+
+         where
+         <if test="maintType!=null">
+
+             maintType like #{maintType} and
+
+         </if>
+    userid=#{userid}
+
+         order by id desc
+
+
+    </select>
+
+
+
+
+    <select id="getAllCount"  resultType="integer">
+
+
+        select count(*) from maintrecords
+
+        where
+
+            <if test="maintType!=null">
+
+                 maintType like #{maintType} and
+            </if>
+
+          userid=#{userid}
+
+
+
+    </select>
+    
+    
+    <select id="getCostCount" resultType="integer">
+
+         select sum(cost) from maintrecords where userid=#{userid} and mainttime like #{time}
+
+    </select>
+
+
+
+    <select id="getMaxMainrecord"  resultMap="result">
+
+        select *  from maintrecords where id=(select max(id) from  smartplacename.maintrecords )
+
+    </select>
+
+
+
+    <select id="getAllMaintrecores"  resultMap="result">
+
+        select *  from maintrecords where userid=#{userid} and mainttime like #{time}
+
+    </select>
+
+
+</mapper>

@@ -1,0 +1,145 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.ImageplacenamesMapper">
+    <resultMap id="result" type="com.csdl.smartplacenew.information.Imageplacenames">
+        <result property="id" column="id"/>
+        <result property="name" column="name" />
+        <result property="pictureurl" column="pictureurl" />
+        <result property="link" column="link" />
+        <result property="status" column="status" />
+        <result property="userid" column="userid" />
+
+    </resultMap>
+
+    <insert id="addImageplacenames" >
+
+        insert into imageplacenames(name, pictureurl, link,status,userid)  values (#{name},#{pictureurl},#{link},#{status},#{userid})
+
+    </insert>
+
+
+    <select id="selectImageplacenames" resultMap="result">
+
+        select *  from imageplacenames where
+
+        <if test="name!=null">
+            name like #{name} and
+        </if>
+
+        status=1
+
+        and userid=#{userid}
+
+
+    </select>
+
+
+    <select id="selectImageplacenames2" resultMap="result">
+
+        select *  from imageplacenames where
+
+        <if test="name!=null">
+            name like #{name} and
+        </if>
+
+        status=1
+        and userid=#{userid}
+
+
+
+    </select>
+
+
+    <select id="selectAllImageplacenames" resultMap="result">
+
+        select *  from imageplacenames where status=1
+
+    </select>
+
+    <update id="delImageplacenames">
+
+        update imageplacenames set status=-1 where id=#{id}    and userid=#{userid}
+
+    </update>
+
+
+    <update id="updateImageplacenames">
+
+
+        update  imageplacenames  set name=#{name} , pictureurl=#{pictureurl},link=#{link} where id=#{id}   and userid=#{userid}
+
+    </update>
+
+
+    <select id="getImageplacenamesCount" resultType="integer">
+
+
+        select count(*)  from imageplacenames
+
+        where
+
+        <if test="name!=null">
+            name like #{name} and
+
+        </if>
+        status=1 and
+
+        userid=#{userid}
+
+
+    </select>
+
+
+
+    <select id="getImageplacenamesById" resultMap="result">
+
+        select *  from imageplacenames where id=#{id} and status=1 and userid=#{userid}
+
+
+    </select>
+
+
+    <select id="getImageplacenamesById2" resultMap="result">
+
+        select *  from imageplacenames where id=#{id} and status=1    and
+
+        userid=#{userid}
+
+
+    </select>
+
+    <select id="getImageplacenamesByMaxId" resultMap="result">
+
+        select *  from imageplacenames
+         where id=(select max(id)  from imageplacenames where status=1
+         and userid=#{userid}) and status=1
+          and
+        userid=#{userid}
+
+
+    </select>
+
+
+    <select id="getImageplacenamesByNameAndUserid" resultMap="result">
+
+        select *  from imageplacenames where
+
+        <if test="name!=null">
+
+            name like #{name} and
+
+        </if>
+        status=1
+
+        and
+
+        userid=#{userid}
+
+        order by id asc
+
+
+    </select>
+
+</mapper>

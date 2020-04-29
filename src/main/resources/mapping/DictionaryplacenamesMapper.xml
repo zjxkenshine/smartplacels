@@ -1,0 +1,115 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.DictionaryplacenamesMapper">
+    <resultMap id="result" type="com.csdl.smartplacenew.information.Dictionaryplacenames">
+        <result property="id" column="id"/>
+        <result property="name" column="name" />
+        <result property="pictureurl" column="pictureurl" />
+        <result property="status" column="status" />
+        <result property="userid" column="userid" />
+    </resultMap>
+
+    <insert id="addDictionaryplacenames" >
+
+        insert into dictionaryplacenames(
+        name,
+        pictureurl,
+         status,
+         userid)
+          values
+          (
+          #{name},
+          #{pictureurl},
+          #{status},
+          #{userid})
+
+    </insert>
+
+
+    <select id="selectDictionaryplacenames" resultMap="result">
+
+        select *  from dictionaryplacenames where
+
+        <if test="name!=null">
+            name  like #{name} and
+        </if>
+        status=1
+
+        and userid=#{userid}
+
+    </select>
+
+
+    <select id="selectDictionaryplacenames2" resultMap="result">
+
+        select *  from dictionaryplacenames where
+
+        <if test="name!=null">
+            name like #{name} and
+        </if>
+        status=1
+        and userid=#{userid}
+
+
+    </select>
+
+    <update id="delDictionaryplacenames">
+
+        update dictionaryplacenames set status=-1 where id=#{id}   and userid=#{userid}
+
+    </update>
+
+
+    <update id="updateDictionaryplacenames">
+
+
+        update  dictionaryplacenames
+        set name=#{name} ,
+
+        pictureurl=#{pictureurl}
+        where id=#{id}
+         and userid=#{userid}
+
+    </update>
+
+
+
+    <select id="getDictionaryplacenamesCount" resultType="integer">
+
+        select count(*)  from dictionaryplacenames
+        where
+        <if test="name!=null">
+            name like #{name} and
+
+        </if>
+        status=1
+
+        and userid=#{userid}
+
+    </select>
+
+
+    <select id="getDictionaryplacenamesById" resultMap="result">
+
+        select *  from dictionaryplacenames where id=#{id} and status=1 and userid=#{userid}
+
+    </select>
+
+
+    <select id="getDictionaryplacenamesById2" resultMap="result">
+
+        select *  from dictionaryplacenames where id=#{id} and status=1    and userid=#{userid}
+
+    </select>
+
+    <select id="getDictionaryplacenamesByMaxId" resultMap="result">
+
+        select *  from dictionaryplacenames where id=(
+        select max(id)  from dictionaryplacenames
+         where status=1  and userid=#{userid}) and status=1  and userid=#{userid}
+
+    </select>
+
+</mapper>

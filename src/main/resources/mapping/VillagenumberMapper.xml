@@ -1,0 +1,336 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.VillagenumberMapper">
+    <resultMap id="result" type="com.csdl.smartplacenew.pojo.Villagenumber">
+        <result property="id" column="id"/>
+        <result property="name" column="name" />
+        <result property="lonandlat" column="lonandlat" />
+        <result property="type" column="type" />
+        <result property="url" column="url" />
+        <result property="voiceurl" column="voiceurl" />
+        <result property="status" column="status" />
+
+        <result property="textofmater" column="textofmater" />
+        <result property="size" column="size" />
+        <result property="yearofesent" column="yearofesent" />
+        <result property="mainteunit" column="mainteunit" />
+        <result property="numofmaint" column="numofmaint" />
+        <result property="maintperiod" column="maintperiod" />
+        <result property="maintcost" column="maintcost" />
+        <result property="maintaccounts" column="maintaccounts" />
+
+        <result property="mandarinword" column="mandarinword" />
+        <result property="englishword" column="englishword" />
+        <result property="userid" column="userid" />
+        <result property="sharelinks" column="sharelinks" />
+        <result property="orderindex" column="orderindex" />
+    </resultMap>
+
+
+    <insert id="addVillagenumber">
+
+        insert into villagenumber (name,lonandlat,type,url,voiceurl,status,
+           textofmater,size,yearofesent,mainteunit,numofmaint,maintperiod,maintcost,maintaccounts,userid,sharelinks,englishword
+
+        ) values (
+        #{name},#{lonandlat},#{type},#{url},#{voiceurl},1,
+           #{textofmater},#{size}, #{yearofesent}, #{mainteunit}, #{numofmaint},#{maintperiod},#{maintcost},#{maintaccounts},#{userid},
+           #{sharelinks},#{englishword}
+
+        );
+
+   </insert>
+
+
+    <insert id="addVillagenumberMandarin">
+
+        insert into villagenumber (name,lonandlat,type,url,voiceurl,status,
+           textofmater,size,yearofesent,mainteunit,numofmaint,maintperiod,
+           maintcost,maintaccounts,userid,sharelinks,englishword,mandarinword
+
+        ) values (
+        #{name},#{lonandlat},#{type},#{url},#{voiceurl},1,
+           #{textofmater},#{size}, #{yearofesent}, #{mainteunit}, #{numofmaint},#{maintperiod},#{maintcost},#{maintaccounts},#{userid},
+           #{sharelinks},#{englishword},#{mandarin}
+
+        );
+
+   </insert>
+
+
+    <select id="getVillagenumberById" resultMap="result">
+
+        select *  from villagenumber where id=#{id}  and userid=#{userid}
+
+    </select>
+
+    <update id="updateVillagenumberStatus">
+
+        update villagenumber set status=0 where  id=#{id} and userid=#{userid}
+
+    </update>
+
+
+    <update id="updateVillagenumberById" >
+
+        update villagenumber set
+         name =#{name},
+         lonandlat=#{lonandlat},
+         type=#{type},
+         url=#{url},
+         voiceurl=#{voiceurl},
+
+          textofmater=#{textofmater},
+         size=#{size},
+         yearofesent=#{yearofesent},
+         mainteunit=#{mainteunit},
+         numofmaint=#{numofmaint},
+         maintperiod=#{maintperiod},
+         maintcost=#{maintcost},
+         maintaccounts=#{maintaccounts},
+         sharelinks=#{sharelinks},
+         englishword=#{englishword}
+
+          where id=#{id} and userid=#{userid}
+
+    </update>
+
+
+    <update id="updateVillagenumberByIdAndMandarin" >
+
+        update villagenumber set
+         name =#{name},
+         lonandlat=#{lonandlat},
+         type=#{type},
+         url=#{url},
+         voiceurl=#{voiceurl},
+
+          textofmater=#{textofmater},
+         size=#{size},
+         yearofesent=#{yearofesent},
+         mainteunit=#{mainteunit},
+         numofmaint=#{numofmaint},
+         maintperiod=#{maintperiod},
+         maintcost=#{maintcost},
+         maintaccounts=#{maintaccounts},
+         sharelinks=#{sharelinks},
+         englishword=#{englishword},
+         mandarinword=#{mandarin}
+
+          where id=#{id} and userid=#{userid}
+
+    </update>
+
+
+
+
+    <select id="getVillagenumberByKey"  resultMap="result">
+
+
+        select *  from villagenumber
+
+        where
+        status=1
+        and
+        userid=#{userid}
+
+        <if test="key!=null">
+            and name like #{key} and status=1 or type like #{key} and status=1
+        </if>
+
+        order by id desc
+    </select>
+
+
+
+    <select id="getVillagenumberByKeyCount"  resultType="integer">
+
+        select  count(*)  from villagenumber
+
+        where
+        status=1
+
+        and
+        userid=#{userid}
+
+        <if test="key!=null">
+            and name like #{key} and status=1 or type like #{key} and status=1
+        </if>
+
+
+    </select>
+
+
+    <insert id="addMaintOfVillage">
+
+        insert into maintrecords ( mainttype, number, maintcontent, maintcompany, contacts, contactsnum, cost, mainttime,userid)
+
+        values (#{mainttype},#{number},#{maintcontent},#{maintcompany},#{contacts},#{contactsnum},#{cost},#{mainttime},#{userid})
+    </insert>
+
+
+    <select id="getVillageIdByName" resultType="integer">
+
+        select id from villagenumber where lonandlat =#{lonandlat} and status=1 and userid=#{userid}
+
+    </select>
+
+
+    <select id="getVillageIdByName2" resultType="integer">
+
+        select id from villagenumber where name =#{name} and status=1
+
+    </select>
+
+
+    <select id="getLonAndLat" resultType="string">
+
+        select lonandlat from villagenumber where status=1 and userid=#{userid}
+
+    </select>
+
+
+    <select id="getVillageByLonAndLat" resultMap="result">
+
+        select  *  from villagenumber where lonandlat=#{lonandlat} and status=1 and userid=#{userid}
+
+
+    </select>
+
+
+
+
+    <select id="getVillageNumByUrl" resultMap="result">
+
+        select  *  from villagenumber where url=#{url} and status=1 and userid=#{userid}
+
+
+    </select>
+
+
+
+    <insert id="addCountOfVilageNum">
+
+        insert into count ( name, count2, monthlyvisits,type,status,yearlyvisits,userid)values
+        (#{name},#{count2},#{monthlyvisits},#{type},#{status},#{yearlyvisits},#{userid});
+
+    </insert>
+
+
+    <select id="getVilageNumByName"  resultMap="result">
+
+        select *  from villagenumber where name=#{name} and  status=1 and userid=#{userid}
+
+    </select>
+
+
+    <update id="updateMandarinword">
+
+        update villagenumber
+        set mandarinword=#{word}
+              where id= #{id}
+         and status=1
+and userid=#{userid}
+    </update>
+
+
+
+    <update id="updateEnglishword">
+
+        update villagenumber
+        set englishword=#{word}
+            where id= #{id}
+         and status=1
+and userid=#{userid}
+    </update>
+
+
+    <select id="getUrlById" resultType="string">
+
+        select url from  villagenumber where id=#{id} and userid=#{userid} and status=1
+
+    </select>
+
+
+
+    <select id="getIdByUrl" resultType="integer">
+
+        select id from  villagenumber where url=#{url} and status=1  and userid=#{userid}
+
+    </select>
+
+
+    <select id="getMaxId" resultType="integer">
+
+        select max(id) from villagenumber where status=1 and userid=#{userid}
+
+    </select>
+
+
+    <select id="getMinId" resultType="integer">
+
+        select min(id) from villagenumber where status=1 and userid=#{userid}
+
+    </select>
+
+
+    <update id="addLonAndLatByUrl">
+
+        update villagenumber set lonandlat=#{LonAndLat} where url=#{url} and userid=#{userid}
+
+    </update>
+
+
+    <select id="getMaxIdByAll" resultType="integer">
+
+        select max(id) from villagenumber where status=1 and userid=#{userid}
+
+    </select>
+
+
+    <select id="getVillagenumberByMaxId" resultMap="result">
+
+
+       select *  from villagenumber where status=1 and
+
+        id=(select max(id)  from smartplacename.villagenumber where status=1 and userid=#{userid})
+
+        and userid=#{userid}
+
+    </select>
+
+
+    <select id="getNameAndUrl" resultMap="result">
+
+        select name,url from smartplacename.villagenumber where status=1 and userid=#{userid}
+
+    </select>
+
+
+    <select id="getOrderVillageNumberByUseriId" resultType="integer">
+
+        select orderindex from villagenumber where url =#{url} and status=1 and userid=#{userid}
+    </select>
+
+
+    <select id="getMaxOrderVillageNumberByUseriId" resultType="integer">
+
+          select max(orderindex) from villagenumber where  status=1 and userid=#{userid}
+
+    </select>
+
+    <select id="getMinOrderVillageNumberByUseriId" resultType="integer">
+
+           select min(orderindex) from villagenumber where  status=1 and userid=#{userid}
+    </select>
+
+    <select id="getUrlByOrderindexVillageNumberByUserId" resultType="string">
+
+        select url from villagenumber where orderindex=#{orderindex} and userid=#{userid} and status=1
+
+    </select>
+
+
+</mapper>

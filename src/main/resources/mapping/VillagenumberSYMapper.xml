@@ -1,0 +1,102 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.VillagenumberSYMapper">
+    <resultMap id="result" type="com.csdl.smartplacenew.pojo.VillagenumberSY">
+
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+
+        <result property="text" column="text" />
+        <result property="lon" column="lon" />
+        <result property="lat" column="lat" />
+        <result property="pictureurl" column="pictureurl" />
+        <result property="userid" column="userid" />
+
+    </resultMap>
+
+
+
+    <select id="getVillagenumberSYByName"  resultMap="result">
+
+        select * from villagenumbersy where name like #{name} and userid=#{userid}
+
+    </select>
+
+
+    <select id="getByText" resultMap="result">
+
+      select *  from villagenumbersy where text like #{text}
+
+  </select>
+
+
+    <select id="getAllVillagenumberSY"  resultMap="result">
+
+        select *  from villagenumbersy where userid=#{userid}
+
+    </select>
+
+    <update id="updatePictUrl">
+
+        update villagenumbersy set pictureurl=#{pictureurl} where name=#{name}
+
+    </update>
+
+    <select id="getFeiYiAndMinSu" resultMap="result">
+
+        select feiyiwenhua ,minsuwenhua from villagenumbersy where id =#{id}
+
+
+    </select>
+
+    <insert id="addVillageNumberSy">
+
+        insert  into
+        villagenumbersy (
+        name ,
+        text,
+        pictureurl,
+        userid,
+        chuantongjianzhu,
+        feiyiwenhua,
+        minsuwenhua
+        )
+
+        values (
+        #{name},
+        #{text},
+        #{url},
+        ${userid},
+        #{chuantongjianzhu},
+        #{feiyiwenhua},
+        #{minsuwenhua})
+
+    </insert>
+
+    <select id="getVillagenumberSYById" resultMap="result">
+
+        select *  from villagenumbersy where id=#{id}
+
+    </select>
+
+    <update id="updateVillageNumberSy" >
+
+        update villagenumbersy set
+
+        feiyiwenhua=#{feiyiwenhua},
+        minsuwenhua=#{minsuwenhua}
+
+        where id=#{id}
+
+    </update>
+
+
+    <select id="getVillagenumberSYByName2" resultMap="result">
+
+          select id,feiyiwenhua ,minsuwenhua from villagenumbersy where name like #{name}
+
+    </select>
+
+</mapper>

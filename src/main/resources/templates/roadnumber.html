@@ -1,0 +1,2636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <link href="http://at.alicdn.com/t/font_1461119990_7929926.css" type="text/css" rel="stylesheet" />
+    <title>   [[${roadnumbername}]]</title>
+</head>
+<style>
+    @font-face {
+        font-family: 'iconfont';  /* project id 1531337 */
+        src: url('//at.alicdn.com/t/font_1531337_tvu7u3ax4t.eot');
+        src: url('//at.alicdn.com/t/font_1531337_tvu7u3ax4t.eot?#iefix') format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_1531337_tvu7u3ax4t.woff2') format('woff2'),
+        url('//at.alicdn.com/t/font_1531337_tvu7u3ax4t.woff') format('woff'),
+        url('//at.alicdn.com/t/font_1531337_tvu7u3ax4t.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_1531337_tvu7u3ax4t.svg#iconfont') format('svg');
+    }
+    * {
+        touch-action: pan-y;
+        text-decoration: none;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .detailpage {
+        width: 100%;
+        height: 100%;
+        padding: 60px 10px 50px;
+        box-sizing: border-box
+    }
+
+    .title {
+        width: 100%;
+        height: 50px;
+        font-size: 20px;
+        line-height: 50px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background: #e9e8e8;
+        z-index: 99;
+    }
+
+    .title div {
+        width: 100%;
+        text-align: center;
+        height: 50px;
+    }
+
+    .title .jt {
+        width: 20%;
+        color: #878787
+    }
+
+
+    .carousels {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        height: 170px;
+    }
+
+    .bx-wrapper {
+        position: relative;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .bx-wrapper .bx-pager {
+        text-align: center;
+        font-size: .85em;
+        font-family: Arial;
+        font-weight: bold;
+        color: #666;
+        padding-top: 20px;
+    }
+
+    .bx-pager-item {
+        display: inline-block;
+        *zoom: 1;
+        *display: inline;
+    }
+
+    .bx-wrapper .bx-pager.bx-default-pager a {
+        background: #666;
+        text-indent: -9999px;
+        display: block;
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        outline: 0;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    .bx-wrapper .bx-pager.bx-default-pager a:hover,
+    .bx-wrapper .bx-pager.bx-default-pager a.active {
+        background: #000;
+    }
+
+    .bx-wrapper .bx-controls-direction a {
+        display: none
+    }
+
+    /*.audio {*/
+        /*padding: 10px 0*/
+    /*}*/
+    .audioitem{
+        display: none;
+    }
+
+
+    #container {
+        width: 100%;
+        height: 200px
+    }
+
+
+
+
+    .aaaa{
+        width: 100%;
+        height: 40px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .language {
+        width: 100px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+    }
+
+    .inputs {
+        width: 100%;
+        height: 30px;
+        background: #4196ff;
+        border: none;
+        color: #fff;
+        border-radius: 3px
+    }
+    .inquire {
+        width: 100%;
+        height: 30px;
+        margin-top: 10px;
+        box-sizing: border-box;
+    }
+    .foot {
+        width: 100%;
+        height: 50px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background: #ebeaea;
+        z-index: 200;
+    }
+
+    .foot a {
+        width: 33%;
+        height: 50px;
+        text-align: center;
+        color: #000;
+        font-size: 12px;
+        padding: 20px 0 0 0;
+    }
+
+    .englishWord{
+        display: none;
+    }
+    .fangyan{
+        display: none;
+    }
+    .gomap {
+        font-size:16px;
+    }
+</style>
+
+<body>
+<div class='title'>
+    <a class="jt"  id="jt1" href=''>
+        <div><</div>
+    </a>
+    <div >
+        [[${roadnumbername}]]
+    </div>
+    <a class="jt" id ="jt2" href=''>
+        <div>></div>
+    </a>
+</div>
+<div class='detailpage'>
+
+    <span style="display: none" id="RoadNumbercurrentUserId">[[${RoadNumbercurrentUserId}]]</span>
+
+    <span style="display: none" id="Name">[[${roadnumbername}]]</span>
+
+    <span style="display: none" id="leftnumberUrl">[[${roadnumberleftnumberUrl}]]</span>
+
+    <span style="display: none" id="rightplatenumberUrl">[[${roadnumberrightplatenumberUrl}]]</span>
+
+
+    <span style="display: none" id="sharelinks">[[${sharelinks}]]</span>
+
+
+    <span style="display: none" id="roadnumberMin">[[${roadnumberMin}]]</span>
+
+
+    <span style="display: none" id="roadnumberMax">[[${roadnumberMax}]]</span>
+
+
+    <span style="display: none;"  id="img"> [[${roadnumberpictureUrl}]]</span>
+
+    <span style="display: none;"  id="roadnumbermandarinVoice"> [[${roadnumbermandarinVoice}]]</span>
+
+    <span style="display: none;"  id="roadnumberenglishVoice"> [[${roadnumberenglishVoice}]]</span>
+
+    <span style="display: none;"  id="roadnumberdialectVoice"> [[${roadnumberdialectVoice}]]</span>
+
+    <span style="display: none;"  id="lonandlat"> [[${roadnumberlonandlat}]]</span>
+
+
+    <!--<div class='title'>-->
+       <!---->
+    <!--</div>-->
+
+    <div class='carousels'>
+    </div>
+
+    <div class="mandarinWord"  style="white-space:pre-line;text-indent:28px;font-size: 14px">
+        <p style="text-indent:28px">[[${roadnumbermandarinWord}]]</p>
+    </div>
+
+    <div class="englishWord"  style="white-space:pre-line;text-indent:28px;font-size: 14px">
+        <p style="text-indent:28px"> [[  ${roadnumberenglishWord}]]</p>
+    </div>
+
+    <div class="aaaa">
+        <div class="language">
+            <input type="button" value="普通话" class="inputs" id='chineseplay' />
+        </div>
+        <div class="language fangyan">
+            <input type="button" value="方言" class="inputs" id='dialectplay' />
+        </div>
+        <div class="language">
+            <input type="button" value="English" class="inputs" id='englishplay' />
+        </div>
+
+        <!--<div class="language">-->
+            <!--<input type="button" value="播放" class="inputs" id='dialectplay' />-->
+            <!--<div class="inputtitle">方言</div>-->
+        <!--</div>-->
+    </div>
+
+
+
+    <div class='audio'>
+        <!--<audio controls='controls'>-->
+            <!--<source src=  type="audio/mpeg" />-->
+        <!--</audio>-->
+    </div>
+
+    <div id="container"></div>
+    <div class="inquire">
+        <input id="go" type="button" value="点击查询" class="inputs gomap">
+    </div>
+</div>
+<div class="foot">
+    <a id="home" href="">
+        <i class="iconfont">&#xe60b</i>
+        <div>
+            首页
+        </div>
+    </a>
+    <a id="erweima" href="">
+        <i class="iconfont">&#xe653</i>
+        <div>
+            地名文化馆
+        </div>
+    </a>
+    <a href="/API/LS/RoadNumberFreedbindexshow">
+        <i class="iconfont">&#xe63c</i>
+        <div>
+            维护反馈
+        </div>
+    </a>
+</div>
+</body>
+
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+<!--<script type="text/javascript" src="./jquery.bxslider.js"></script>-->
+<script>
+
+    /**
+     * BxSlider v4.1.2 - Fully loaded, responsive content slider
+     * http://bxslider.com
+     *
+     * Copyright 2014, Steven Wanderski - http://stevenwanderski.com - http://bxcreative.com
+     * Written while drinking Belgian ales and listening to jazz
+     *
+     * Released under the MIT license - http://opensource.org/licenses/MIT
+     */
+
+    ;(function($){
+
+        var plugin = {};
+
+        var defaults = {
+
+            // GENERAL
+            mode: 'horizontal',
+            slideSelector: '',
+            infiniteLoop: true,
+            hideControlOnEnd: false,
+            speed: 500,
+            easing: null,
+            slideMargin: 0,
+            startSlide: 0,
+            randomStart: false,
+            captions: false,
+            ticker: false,
+            tickerHover: false,
+            adaptiveHeight: false,
+            adaptiveHeightSpeed: 500,
+            video: false,
+            useCSS: true,
+            preloadImages: 'visible',
+            responsive: true,
+            slideZIndex: 50,
+            wrapperClass: 'bx-wrapper',
+
+            // TOUCH
+            touchEnabled: true,
+            swipeThreshold: 50,
+            oneToOneTouch: true,
+            preventDefaultSwipeX: true,
+            preventDefaultSwipeY: false,
+
+            // PAGER
+            pager: true,
+            pagerType: 'full',
+            pagerShortSeparator: ' / ',
+            pagerSelector: null,
+            buildPager: null,
+            pagerCustom: null,
+
+            // CONTROLS
+            controls: true,
+            nextText: 'Next',
+            prevText: 'Prev',
+            nextSelector: null,
+            prevSelector: null,
+            autoControls: false,
+            startText: 'Start',
+            stopText: 'Stop',
+            autoControlsCombine: false,
+            autoControlsSelector: null,
+
+            // AUTO
+            auto: false,
+            pause: 4000,
+            autoStart: true,
+            autoDirection: 'next',
+            autoHover: false,
+            autoDelay: 0,
+            autoSlideForOnePage: false,
+
+            // CAROUSEL
+            minSlides: 1,
+            maxSlides: 1,
+            moveSlides: 0,
+            slideWidth: 0,
+
+            // CALLBACKS
+            onSliderLoad: function() {},
+            onSlideBefore: function() {},
+            onSlideAfter: function() {},
+            onSlideNext: function() {},
+            onSlidePrev: function() {},
+            onSliderResize: function() {}
+        }
+
+        $.fn.bxSlider = function(options){
+
+            if(this.length == 0) return this;
+
+            // support mutltiple elements
+            if(this.length > 1){
+                this.each(function(){$(this).bxSlider(options)});
+                return this;
+            }
+
+            // create a namespace to be used throughout the plugin
+            var slider = {};
+            // set a reference to our slider element
+            var el = this;
+            plugin.el = this;
+
+            /**
+             * Makes slideshow responsive
+             */
+                // first get the original window dimens (thanks alot IE)
+            var windowWidth = $(window).width();
+            var windowHeight = $(window).height();
+
+
+
+            /**
+             * ===================================================================================
+             * = PRIVATE FUNCTIONS
+             * ===================================================================================
+             */
+
+            /**
+             * Initializes namespace settings to be used throughout plugin
+             */
+            var init = function(){
+                // merge user-supplied options with the defaults
+                slider.settings = $.extend({}, defaults, options);
+                // parse slideWidth setting
+                slider.settings.slideWidth = parseInt(slider.settings.slideWidth);
+                // store the original children
+                slider.children = el.children(slider.settings.slideSelector);
+                // check if actual number of slides is less than minSlides / maxSlides
+                if(slider.children.length < slider.settings.minSlides) slider.settings.minSlides = slider.children.length;
+                if(slider.children.length < slider.settings.maxSlides) slider.settings.maxSlides = slider.children.length;
+                // if random start, set the startSlide setting to random number
+                if(slider.settings.randomStart) slider.settings.startSlide = Math.floor(Math.random() * slider.children.length);
+                // store active slide information
+                slider.active = { index: slider.settings.startSlide }
+                // store if the slider is in carousel mode (displaying / moving multiple slides)
+                slider.carousel = slider.settings.minSlides > 1 || slider.settings.maxSlides > 1;
+                // if carousel, force preloadImages = 'all'
+                if(slider.carousel) slider.settings.preloadImages = 'all';
+                // calculate the min / max width thresholds based on min / max number of slides
+                // used to setup and update carousel slides dimensions
+                slider.minThreshold = (slider.settings.minSlides * slider.settings.slideWidth) + ((slider.settings.minSlides - 1) * slider.settings.slideMargin);
+                slider.maxThreshold = (slider.settings.maxSlides * slider.settings.slideWidth) + ((slider.settings.maxSlides - 1) * slider.settings.slideMargin);
+                // store the current state of the slider (if currently animating, working is true)
+                slider.working = false;
+                // initialize the controls object
+                slider.controls = {};
+                // initialize an auto interval
+                slider.interval = null;
+                // determine which property to use for transitions
+                slider.animProp = slider.settings.mode == 'vertical' ? 'top' : 'left';
+                // determine if hardware acceleration can be used
+                slider.usingCSS = slider.settings.useCSS && slider.settings.mode != 'fade' && (function(){
+                    // create our test div element
+                    var div = document.createElement('div');
+                    // css transition properties
+                    var props = ['WebkitPerspective', 'MozPerspective', 'OPerspective', 'msPerspective'];
+                    // test for each property
+                    for(var i in props){
+                        if(div.style[props[i]] !== undefined){
+                            slider.cssPrefix = props[i].replace('Perspective', '').toLowerCase();
+                            slider.animProp = '-' + slider.cssPrefix + '-transform';
+                            return true;
+                        }
+                    }
+                    return false;
+                }());
+                // if vertical mode always make maxSlides and minSlides equal
+                if(slider.settings.mode == 'vertical') slider.settings.maxSlides = slider.settings.minSlides;
+                // save original style data
+                el.data("origStyle", el.attr("style"));
+                el.children(slider.settings.slideSelector).each(function() {
+                    $(this).data("origStyle", $(this).attr("style"));
+                });
+                // perform all DOM / CSS modifications
+                setup();
+            }
+
+            /**
+             * Performs all DOM and CSS modifications
+             */
+            var setup = function(){
+                // wrap el in a wrapper
+                el.wrap('<div class="' + slider.settings.wrapperClass + '"><div class="bx-viewport"></div></div>');
+                // store a namspace reference to .bx-viewport
+                slider.viewport = el.parent();
+                // add a loading div to display while images are loading
+                slider.loader = $('<div class="bx-loading" />');
+                slider.viewport.prepend(slider.loader);
+                // set el to a massive width, to hold any needed slides
+                // also strip any margin and padding from el
+                el.css({
+                    width: slider.settings.mode == 'horizontal' ? (slider.children.length * 100 + 215) + '%' : 'auto',
+                    position: 'relative'
+                });
+                // if using CSS, add the easing property
+                if(slider.usingCSS && slider.settings.easing){
+                    el.css('-' + slider.cssPrefix + '-transition-timing-function', slider.settings.easing);
+                    // if not using CSS and no easing value was supplied, use the default JS animation easing (swing)
+                }else if(!slider.settings.easing){
+                    slider.settings.easing = 'swing';
+                }
+                var slidesShowing = getNumberSlidesShowing();
+                // make modifications to the viewport (.bx-viewport)
+                slider.viewport.css({
+                    width: '100%',
+                    overflow: 'hidden',
+                    position: 'relative'
+                });
+                slider.viewport.parent().css({
+                    maxWidth: getViewportMaxWidth()
+                });
+                // make modification to the wrapper (.bx-wrapper)
+                if(!slider.settings.pager) {
+                    slider.viewport.parent().css({
+                        margin: '0 auto 0px'
+                    });
+                }
+                // apply css to all slider children
+                slider.children.css({
+                    'float': slider.settings.mode == 'horizontal' ? 'left' : 'none',
+                    listStyle: 'none',
+                    position: 'relative'
+                });
+                // apply the calculated width after the float is applied to prevent scrollbar interference
+                slider.children.css('width', getSlideWidth());
+                // if slideMargin is supplied, add the css
+                if(slider.settings.mode == 'horizontal' && slider.settings.slideMargin > 0) slider.children.css('marginRight', slider.settings.slideMargin);
+                if(slider.settings.mode == 'vertical' && slider.settings.slideMargin > 0) slider.children.css('marginBottom', slider.settings.slideMargin);
+                // if "fade" mode, add positioning and z-index CSS
+                if(slider.settings.mode == 'fade'){
+                    slider.children.css({
+                        position: 'absolute',
+                        zIndex: 0,
+                        display: 'none'
+                    });
+                    // prepare the z-index on the showing element
+                    slider.children.eq(slider.settings.startSlide).css({zIndex: slider.settings.slideZIndex, display: 'block'});
+                }
+                // create an element to contain all slider controls (pager, start / stop, etc)
+                slider.controls.el = $('<div class="bx-controls" />');
+                // if captions are requested, add them
+                if(slider.settings.captions) appendCaptions();
+                // check if startSlide is last slide
+                slider.active.last = slider.settings.startSlide == getPagerQty() - 1;
+                // if video is true, set up the fitVids plugin
+                if(slider.settings.video) el.fitVids();
+                // set the default preload selector (visible)
+                var preloadSelector = slider.children.eq(slider.settings.startSlide);
+                if (slider.settings.preloadImages == "all") preloadSelector = slider.children;
+                // only check for control addition if not in "ticker" mode
+                if(!slider.settings.ticker){
+                    // if pager is requested, add it
+                    if(slider.settings.pager) appendPager();
+                    // if controls are requested, add them
+                    if(slider.settings.controls) appendControls();
+                    // if auto is true, and auto controls are requested, add them
+                    if(slider.settings.auto && slider.settings.autoControls) appendControlsAuto();
+                    // if any control option is requested, add the controls wrapper
+                    if(slider.settings.controls || slider.settings.autoControls || slider.settings.pager) slider.viewport.after(slider.controls.el);
+                    // if ticker mode, do not allow a pager
+                }else{
+                    slider.settings.pager = false;
+                }
+                // preload all images, then perform final DOM / CSS modifications that depend on images being loaded
+                loadElements(preloadSelector, start);
+            }
+
+            var loadElements = function(selector, callback){
+                var total = selector.find('img, iframe').length;
+                if (total == 0){
+                    callback();
+                    return;
+                }
+                var count = 0;
+                selector.find('img, iframe').each(function(){
+                    $(this).one('load', function() {
+                        if(++count == total) callback();
+                    }).each(function() {
+                        if(this.complete) $(this).load();
+                    });
+                });
+            }
+
+            /**
+             * Start the slider
+             */
+            var start = function(){
+                // if infinite loop, prepare additional slides
+                if(slider.settings.infiniteLoop && slider.settings.mode != 'fade' && !slider.settings.ticker){
+                    var slice = slider.settings.mode == 'vertical' ? slider.settings.minSlides : slider.settings.maxSlides;
+                    var sliceAppend = slider.children.slice(0, slice).clone().addClass('bx-clone');
+                    var slicePrepend = slider.children.slice(-slice).clone().addClass('bx-clone');
+                    el.append(sliceAppend).prepend(slicePrepend);
+                }
+                // remove the loading DOM element
+                slider.loader.remove();
+                // set the left / top position of "el"
+                setSlidePosition();
+                // if "vertical" mode, always use adaptiveHeight to prevent odd behavior
+                if (slider.settings.mode == 'vertical') slider.settings.adaptiveHeight = true;
+                // set the viewport height
+                slider.viewport.height(getViewportHeight());
+                // make sure everything is positioned just right (same as a window resize)
+                el.redrawSlider();
+                // onSliderLoad callback
+                slider.settings.onSliderLoad(slider.active.index);
+                // slider has been fully initialized
+                slider.initialized = true;
+                // bind the resize call to the window
+                if (slider.settings.responsive) $(window).bind('resize', resizeWindow);
+                // if auto is true and has more than 1 page, start the show
+                if (slider.settings.auto && slider.settings.autoStart && (getPagerQty() > 1 || slider.settings.autoSlideForOnePage)) initAuto();
+                // if ticker is true, start the ticker
+                if (slider.settings.ticker) initTicker();
+                // if pager is requested, make the appropriate pager link active
+                if (slider.settings.pager) updatePagerActive(slider.settings.startSlide);
+                // check for any updates to the controls (like hideControlOnEnd updates)
+                if (slider.settings.controls) updateDirectionControls();
+                // if touchEnabled is true, setup the touch events
+                if (slider.settings.touchEnabled && !slider.settings.ticker) initTouch();
+            }
+
+            /**
+             * Returns the calculated height of the viewport, used to determine either adaptiveHeight or the maxHeight value
+             */
+            var getViewportHeight = function(){
+                var height = 0;
+                // first determine which children (slides) should be used in our height calculation
+                var children = $();
+                // if mode is not "vertical" and adaptiveHeight is false, include all children
+                if(slider.settings.mode != 'vertical' && !slider.settings.adaptiveHeight){
+                    children = slider.children;
+                }else{
+                    // if not carousel, return the single active child
+                    if(!slider.carousel){
+                        children = slider.children.eq(slider.active.index);
+                        // if carousel, return a slice of children
+                    }else{
+                        // get the individual slide index
+                        var currentIndex = slider.settings.moveSlides == 1 ? slider.active.index : slider.active.index * getMoveBy();
+                        // add the current slide to the children
+                        children = slider.children.eq(currentIndex);
+                        // cycle through the remaining "showing" slides
+                        for (i = 1; i <= slider.settings.maxSlides - 1; i++){
+                            // if looped back to the start
+                            if(currentIndex + i >= slider.children.length){
+                                children = children.add(slider.children.eq(i - 1));
+                            }else{
+                                children = children.add(slider.children.eq(currentIndex + i));
+                            }
+                        }
+                    }
+                }
+                // if "vertical" mode, calculate the sum of the heights of the children
+                if(slider.settings.mode == 'vertical'){
+                    children.each(function(index) {
+                        height += $(this).outerHeight();
+                    });
+                    // add user-supplied margins
+                    if(slider.settings.slideMargin > 0){
+                        height += slider.settings.slideMargin * (slider.settings.minSlides - 1);
+                    }
+                    // if not "vertical" mode, calculate the max height of the children
+                }else{
+                    height = Math.max.apply(Math, children.map(function(){
+                        return $(this).outerHeight(false);
+                    }).get());
+                }
+
+                if(slider.viewport.css('box-sizing') == 'border-box'){
+                    height +=	parseFloat(slider.viewport.css('padding-top')) + parseFloat(slider.viewport.css('padding-bottom')) +
+                        parseFloat(slider.viewport.css('border-top-width')) + parseFloat(slider.viewport.css('border-bottom-width'));
+                }else if(slider.viewport.css('box-sizing') == 'padding-box'){
+                    height +=	parseFloat(slider.viewport.css('padding-top')) + parseFloat(slider.viewport.css('padding-bottom'));
+                }
+
+                return height;
+            }
+
+            /**
+             * Returns the calculated width to be used for the outer wrapper / viewport
+             */
+            var getViewportMaxWidth = function(){
+                var width = '100%';
+                if(slider.settings.slideWidth > 0){
+                    if(slider.settings.mode == 'horizontal'){
+                        width = (slider.settings.maxSlides * slider.settings.slideWidth) + ((slider.settings.maxSlides - 1) * slider.settings.slideMargin);
+                    }else{
+                        width = slider.settings.slideWidth;
+                    }
+                }
+                return width;
+            }
+
+            /**
+             * Returns the calculated width to be applied to each slide
+             */
+            var getSlideWidth = function(){
+                // start with any user-supplied slide width
+                var newElWidth = slider.settings.slideWidth;
+                // get the current viewport width
+                var wrapWidth = slider.viewport.width();
+                // if slide width was not supplied, or is larger than the viewport use the viewport width
+                if(slider.settings.slideWidth == 0 ||
+                    (slider.settings.slideWidth > wrapWidth && !slider.carousel) ||
+                    slider.settings.mode == 'vertical'){
+                    newElWidth = wrapWidth;
+                    // if carousel, use the thresholds to determine the width
+                }else if(slider.settings.maxSlides > 1 && slider.settings.mode == 'horizontal'){
+                    if(wrapWidth > slider.maxThreshold){
+                        // newElWidth = (wrapWidth - (slider.settings.slideMargin * (slider.settings.maxSlides - 1))) / slider.settings.maxSlides;
+                    }else if(wrapWidth < slider.minThreshold){
+                        newElWidth = (wrapWidth - (slider.settings.slideMargin * (slider.settings.minSlides - 1))) / slider.settings.minSlides;
+                    }
+                }
+                return newElWidth;
+            }
+
+            /**
+             * Returns the number of slides currently visible in the viewport (includes partially visible slides)
+             */
+            var getNumberSlidesShowing = function(){
+                var slidesShowing = 1;
+                if(slider.settings.mode == 'horizontal' && slider.settings.slideWidth > 0){
+                    // if viewport is smaller than minThreshold, return minSlides
+                    if(slider.viewport.width() < slider.minThreshold){
+                        slidesShowing = slider.settings.minSlides;
+                        // if viewport is larger than minThreshold, return maxSlides
+                    }else if(slider.viewport.width() > slider.maxThreshold){
+                        slidesShowing = slider.settings.maxSlides;
+                        // if viewport is between min / max thresholds, divide viewport width by first child width
+                    }else{
+                        var childWidth = slider.children.first().width() + slider.settings.slideMargin;
+                        slidesShowing = Math.floor((slider.viewport.width() +
+                            slider.settings.slideMargin) / childWidth);
+                    }
+                    // if "vertical" mode, slides showing will always be minSlides
+                }else if(slider.settings.mode == 'vertical'){
+                    slidesShowing = slider.settings.minSlides;
+                }
+                return slidesShowing;
+            }
+
+            /**
+             * Returns the number of pages (one full viewport of slides is one "page")
+             */
+            var getPagerQty = function(){
+                var pagerQty = 0;
+                // if moveSlides is specified by the user
+                if(slider.settings.moveSlides > 0){
+                    if(slider.settings.infiniteLoop){
+                        pagerQty = Math.ceil(slider.children.length / getMoveBy());
+                    }else{
+                        // use a while loop to determine pages
+                        var breakPoint = 0;
+                        var counter = 0
+                        // when breakpoint goes above children length, counter is the number of pages
+                        while (breakPoint < slider.children.length){
+                            ++pagerQty;
+                            breakPoint = counter + getNumberSlidesShowing();
+                            counter += slider.settings.moveSlides <= getNumberSlidesShowing() ? slider.settings.moveSlides : getNumberSlidesShowing();
+                        }
+                    }
+                    // if moveSlides is 0 (auto) divide children length by sides showing, then round up
+                }else{
+                    pagerQty = Math.ceil(slider.children.length / getNumberSlidesShowing());
+                }
+                return pagerQty;
+            }
+
+            /**
+             * Returns the number of indivual slides by which to shift the slider
+             */
+            var getMoveBy = function(){
+                // if moveSlides was set by the user and moveSlides is less than number of slides showing
+                if(slider.settings.moveSlides > 0 && slider.settings.moveSlides <= getNumberSlidesShowing()){
+                    return slider.settings.moveSlides;
+                }
+                // if moveSlides is 0 (auto)
+                return getNumberSlidesShowing();
+            }
+
+            /**
+             * Sets the slider's (el) left or top position
+             */
+            var setSlidePosition = function(){
+                // if last slide, not infinite loop, and number of children is larger than specified maxSlides
+                if(slider.children.length > slider.settings.maxSlides && slider.active.last && !slider.settings.infiniteLoop){
+                    if (slider.settings.mode == 'horizontal'){
+                        // get the last child's position
+                        var lastChild = slider.children.last();
+                        var position = lastChild.position();
+                        // set the left position
+                        setPositionProperty(-(position.left - (slider.viewport.width() - lastChild.outerWidth())), 'reset', 0);
+                    }else if(slider.settings.mode == 'vertical'){
+                        // get the last showing index's position
+                        var lastShowingIndex = slider.children.length - slider.settings.minSlides;
+                        var position = slider.children.eq(lastShowingIndex).position();
+                        // set the top position
+                        setPositionProperty(-position.top, 'reset', 0);
+                    }
+                    // if not last slide
+                }else{
+                    // get the position of the first showing slide
+                    var position = slider.children.eq(slider.active.index * getMoveBy()).position();
+                    // check for last slide
+                    if (slider.active.index == getPagerQty() - 1) slider.active.last = true;
+                    // set the repective position
+                    if (position != undefined){
+                        if (slider.settings.mode == 'horizontal') setPositionProperty(-position.left, 'reset', 0);
+                        else if (slider.settings.mode == 'vertical') setPositionProperty(-position.top, 'reset', 0);
+                    }
+                }
+            }
+
+            /**
+             * Sets the el's animating property position (which in turn will sometimes animate el).
+             * If using CSS, sets the transform property. If not using CSS, sets the top / left property.
+             *
+             * @param value (int)
+             *  - the animating property's value
+             *
+             * @param type (string) 'slider', 'reset', 'ticker'
+             *  - the type of instance for which the function is being
+             *
+             * @param duration (int)
+             *  - the amount of time (in ms) the transition should occupy
+             *
+             * @param params (array) optional
+             *  - an optional parameter containing any variables that need to be passed in
+             */
+            var setPositionProperty = function(value, type, duration, params){
+                // use CSS transform
+                if(slider.usingCSS){
+                    // determine the translate3d value
+                    var propValue = slider.settings.mode == 'vertical' ? 'translate3d(0, ' + value + 'px, 0)' : 'translate3d(' + value + 'px, 0, 0)';
+                    // add the CSS transition-duration
+                    el.css('-' + slider.cssPrefix + '-transition-duration', duration / 1000 + 's');
+                    if(type == 'slide'){
+                        // set the property value
+                        el.css(slider.animProp, propValue);
+                        // bind a callback method - executes when CSS transition completes
+                        el.bind('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
+                            // unbind the callback
+                            el.unbind('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd');
+                            updateAfterSlideTransition();
+                        });
+                    }else if(type == 'reset'){
+                        el.css(slider.animProp, propValue);
+                    }else if(type == 'ticker'){
+                        // make the transition use 'linear'
+                        el.css('-' + slider.cssPrefix + '-transition-timing-function', 'linear');
+                        el.css(slider.animProp, propValue);
+                        // bind a callback method - executes when CSS transition completes
+                        el.bind('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
+                            // unbind the callback
+                            el.unbind('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd');
+                            // reset the position
+                            setPositionProperty(params['resetValue'], 'reset', 0);
+                            // start the loop again
+                            tickerLoop();
+                        });
+                    }
+                    // use JS animate
+                }else{
+                    var animateObj = {};
+                    animateObj[slider.animProp] = value;
+                    if(type == 'slide'){
+                        el.animate(animateObj, duration, slider.settings.easing, function(){
+                            updateAfterSlideTransition();
+                        });
+                    }else if(type == 'reset'){
+                        el.css(slider.animProp, value)
+                    }else if(type == 'ticker'){
+                        el.animate(animateObj, speed, 'linear', function(){
+                            setPositionProperty(params['resetValue'], 'reset', 0);
+                            // run the recursive loop after animation
+                            tickerLoop();
+                        });
+                    }
+                }
+            }
+
+            /**
+             * Populates the pager with proper amount of pages
+             */
+            var populatePager = function(){
+                var pagerHtml = '';
+                var pagerQty = getPagerQty();
+                // loop through each pager item
+                for(var i=0; i < pagerQty; i++){
+                    var linkContent = '';
+                    // if a buildPager function is supplied, use it to get pager link value, else use index + 1
+                    if(slider.settings.buildPager && $.isFunction(slider.settings.buildPager)){
+                        linkContent = slider.settings.buildPager(i);
+                        slider.pagerEl.addClass('bx-custom-pager');
+                    }else{
+                        linkContent = i + 1;
+                        slider.pagerEl.addClass('bx-default-pager');
+                    }
+                    // var linkContent = slider.settings.buildPager && $.isFunction(slider.settings.buildPager) ? slider.settings.buildPager(i) : i + 1;
+                    // add the markup to the string
+                    pagerHtml += '<div class="bx-pager-item"><a href="" data-slide-index="' + i + '" class="bx-pager-link">' + linkContent + '</a></div>';
+                };
+                // populate the pager element with pager links
+                slider.pagerEl.html(pagerHtml);
+            }
+
+            /**
+             * Appends the pager to the controls element
+             */
+            var appendPager = function(){
+                if(!slider.settings.pagerCustom){
+                    // create the pager DOM element
+                    slider.pagerEl = $('<div class="bx-pager" />');
+                    // if a pager selector was supplied, populate it with the pager
+                    if(slider.settings.pagerSelector){
+                        $(slider.settings.pagerSelector).html(slider.pagerEl);
+                        // if no pager selector was supplied, add it after the wrapper
+                    }else{
+                        slider.controls.el.addClass('bx-has-pager').append(slider.pagerEl);
+                    }
+                    // populate the pager
+                    populatePager();
+                }else{
+                    slider.pagerEl = $(slider.settings.pagerCustom);
+                }
+                // assign the pager click binding
+                slider.pagerEl.on('click', 'a', clickPagerBind);
+            }
+
+            /**
+             * Appends prev / next controls to the controls element
+             */
+            var appendControls = function(){
+                slider.controls.next = $('<a class="bx-next" href="">' + slider.settings.nextText + '</a>');
+                slider.controls.prev = $('<a class="bx-prev" href="">' + slider.settings.prevText + '</a>');
+                // bind click actions to the controls
+                slider.controls.next.bind('click', clickNextBind);
+                slider.controls.prev.bind('click', clickPrevBind);
+                // if nextSlector was supplied, populate it
+                if(slider.settings.nextSelector){
+                    $(slider.settings.nextSelector).append(slider.controls.next);
+                }
+                // if prevSlector was supplied, populate it
+                if(slider.settings.prevSelector){
+                    $(slider.settings.prevSelector).append(slider.controls.prev);
+                }
+                // if no custom selectors were supplied
+                if(!slider.settings.nextSelector && !slider.settings.prevSelector){
+                    // add the controls to the DOM
+                    slider.controls.directionEl = $('<div class="bx-controls-direction" />');
+                    // add the control elements to the directionEl
+                    slider.controls.directionEl.append(slider.controls.prev).append(slider.controls.next);
+                    // slider.viewport.append(slider.controls.directionEl);
+                    slider.controls.el.addClass('bx-has-controls-direction').append(slider.controls.directionEl);
+                }
+            }
+
+            /**
+             * Appends start / stop auto controls to the controls element
+             */
+            var appendControlsAuto = function(){
+                slider.controls.start = $('<div class="bx-controls-auto-item"><a class="bx-start" href="">' + slider.settings.startText + '</a></div>');
+                slider.controls.stop = $('<div class="bx-controls-auto-item"><a class="bx-stop" href="">' + slider.settings.stopText + '</a></div>');
+                // add the controls to the DOM
+                slider.controls.autoEl = $('<div class="bx-controls-auto" />');
+                // bind click actions to the controls
+                slider.controls.autoEl.on('click', '.bx-start', clickStartBind);
+                slider.controls.autoEl.on('click', '.bx-stop', clickStopBind);
+                // if autoControlsCombine, insert only the "start" control
+                if(slider.settings.autoControlsCombine){
+                    slider.controls.autoEl.append(slider.controls.start);
+                    // if autoControlsCombine is false, insert both controls
+                }else{
+                    slider.controls.autoEl.append(slider.controls.start).append(slider.controls.stop);
+                }
+                // if auto controls selector was supplied, populate it with the controls
+                if(slider.settings.autoControlsSelector){
+                    $(slider.settings.autoControlsSelector).html(slider.controls.autoEl);
+                    // if auto controls selector was not supplied, add it after the wrapper
+                }else{
+                    slider.controls.el.addClass('bx-has-controls-auto').append(slider.controls.autoEl);
+                }
+                // update the auto controls
+                updateAutoControls(slider.settings.autoStart ? 'stop' : 'start');
+            }
+
+            /**
+             * Appends image captions to the DOM
+             */
+            var appendCaptions = function(){
+                // cycle through each child
+                slider.children.each(function(index){
+                    // get the image title attribute
+                    var title = $(this).find('img:first').attr('title');
+                    // append the caption
+                    if (title != undefined && ('' + title).length) {
+                        $(this).append('<div class="bx-caption"><span>' + title + '</span></div>');
+                    }
+                });
+            }
+
+            /**
+             * Click next binding
+             *
+             * @param e (event)
+             *  - DOM event object
+             */
+            var clickNextBind = function(e){
+                // if auto show is running, stop it
+                if (slider.settings.auto) el.stopAuto();
+                el.goToNextSlide();
+                e.preventDefault();
+            }
+
+            /**
+             * Click prev binding
+             *
+             * @param e (event)
+             *  - DOM event object
+             */
+            var clickPrevBind = function(e){
+                // if auto show is running, stop it
+                if (slider.settings.auto) el.stopAuto();
+                el.goToPrevSlide();
+                e.preventDefault();
+            }
+
+            /**
+             * Click start binding
+             *
+             * @param e (event)
+             *  - DOM event object
+             */
+            var clickStartBind = function(e){
+                el.startAuto();
+                e.preventDefault();
+            }
+
+            /**
+             * Click stop binding
+             *
+             * @param e (event)
+             *  - DOM event object
+             */
+            var clickStopBind = function(e){
+                el.stopAuto();
+                e.preventDefault();
+            }
+
+            /**
+             * Click pager binding
+             *
+             * @param e (event)
+             *  - DOM event object
+             */
+            var clickPagerBind = function(e){
+                // if auto show is running, stop it
+                if (slider.settings.auto) el.stopAuto();
+                var pagerLink = $(e.currentTarget);
+                if(pagerLink.attr('data-slide-index') !== undefined){
+                    var pagerIndex = parseInt(pagerLink.attr('data-slide-index'));
+                    // if clicked pager link is not active, continue with the goToSlide call
+                    if(pagerIndex != slider.active.index) el.goToSlide(pagerIndex);
+                    e.preventDefault();
+                }
+            }
+
+            /**
+             * Updates the pager links with an active class
+             *
+             * @param slideIndex (int)
+             *  - index of slide to make active
+             */
+            var updatePagerActive = function(slideIndex){
+                // if "short" pager type
+                var len = slider.children.length; // nb of children
+                if(slider.settings.pagerType == 'short'){
+                    if(slider.settings.maxSlides > 1) {
+                        len = Math.ceil(slider.children.length/slider.settings.maxSlides);
+                    }
+                    slider.pagerEl.html( (slideIndex + 1) + slider.settings.pagerShortSeparator + len);
+                    return;
+                }
+                // remove all pager active classes
+                slider.pagerEl.find('a').removeClass('active');
+                // apply the active class for all pagers
+                slider.pagerEl.each(function(i, el) { $(el).find('a').eq(slideIndex).addClass('active'); });
+            }
+
+            /**
+             * Performs needed actions after a slide transition
+             */
+            var updateAfterSlideTransition = function(){
+                // if infinte loop is true
+                if(slider.settings.infiniteLoop){
+                    var position = '';
+                    // first slide
+                    if(slider.active.index == 0){
+                        // set the new position
+                        position = slider.children.eq(0).position();
+                        // carousel, last slide
+                    }else if(slider.active.index == getPagerQty() - 1 && slider.carousel){
+                        position = slider.children.eq((getPagerQty() - 1) * getMoveBy()).position();
+                        // last slide
+                    }else if(slider.active.index == slider.children.length - 1){
+                        position = slider.children.eq(slider.children.length - 1).position();
+                    }
+                    if(position){
+                        if (slider.settings.mode == 'horizontal') { setPositionProperty(-position.left, 'reset', 0); }
+                        else if (slider.settings.mode == 'vertical') { setPositionProperty(-position.top, 'reset', 0); }
+                    }
+                }
+                // declare that the transition is complete
+                slider.working = false;
+                // onSlideAfter callback
+                slider.settings.onSlideAfter(slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index);
+            }
+
+            /**
+             * Updates the auto controls state (either active, or combined switch)
+             *
+             * @param state (string) "start", "stop"
+             *  - the new state of the auto show
+             */
+            var updateAutoControls = function(state){
+                // if autoControlsCombine is true, replace the current control with the new state
+                if(slider.settings.autoControlsCombine){
+                    slider.controls.autoEl.html(slider.controls[state]);
+                    // if autoControlsCombine is false, apply the "active" class to the appropriate control
+                }else{
+                    slider.controls.autoEl.find('a').removeClass('active');
+                    slider.controls.autoEl.find('a:not(.bx-' + state + ')').addClass('active');
+                }
+            }
+
+            /**
+             * Updates the direction controls (checks if either should be hidden)
+             */
+            var updateDirectionControls = function(){
+                if(getPagerQty() == 1){
+                    slider.controls.prev.addClass('disabled');
+                    slider.controls.next.addClass('disabled');
+                }else if(!slider.settings.infiniteLoop && slider.settings.hideControlOnEnd){
+                    // if first slide
+                    if (slider.active.index == 0){
+                        slider.controls.prev.addClass('disabled');
+                        slider.controls.next.removeClass('disabled');
+                        // if last slide
+                    }else if(slider.active.index == getPagerQty() - 1){
+                        slider.controls.next.addClass('disabled');
+                        slider.controls.prev.removeClass('disabled');
+                        // if any slide in the middle
+                    }else{
+                        slider.controls.prev.removeClass('disabled');
+                        slider.controls.next.removeClass('disabled');
+                    }
+                }
+            }
+
+            /**
+             * Initialzes the auto process
+             */
+            var initAuto = function(){
+                // if autoDelay was supplied, launch the auto show using a setTimeout() call
+                if(slider.settings.autoDelay > 0){
+                    var timeout = setTimeout(el.startAuto, slider.settings.autoDelay);
+                    // if autoDelay was not supplied, start the auto show normally
+                }else{
+                    el.startAuto();
+                }
+                // if autoHover is requested
+                if(slider.settings.autoHover){
+                    // on el hover
+                    el.hover(function(){
+                        // if the auto show is currently playing (has an active interval)
+                        if(slider.interval){
+                            // stop the auto show and pass true agument which will prevent control update
+                            el.stopAuto(true);
+                            // create a new autoPaused value which will be used by the relative "mouseout" event
+                            slider.autoPaused = true;
+                        }
+                    }, function(){
+                        // if the autoPaused value was created be the prior "mouseover" event
+                        if(slider.autoPaused){
+                            // start the auto show and pass true agument which will prevent control update
+                            el.startAuto(true);
+                            // reset the autoPaused value
+                            slider.autoPaused = null;
+                        }
+                    });
+                }
+            }
+
+            /**
+             * Initialzes the ticker process
+             */
+            var initTicker = function(){
+                var startPosition = 0;
+                // if autoDirection is "next", append a clone of the entire slider
+                if(slider.settings.autoDirection == 'next'){
+                    el.append(slider.children.clone().addClass('bx-clone'));
+                    // if autoDirection is "prev", prepend a clone of the entire slider, and set the left position
+                }else{
+                    el.prepend(slider.children.clone().addClass('bx-clone'));
+                    var position = slider.children.first().position();
+                    startPosition = slider.settings.mode == 'horizontal' ? -position.left : -position.top;
+                }
+                setPositionProperty(startPosition, 'reset', 0);
+                // do not allow controls in ticker mode
+                slider.settings.pager = false;
+                slider.settings.controls = false;
+                slider.settings.autoControls = false;
+                // if autoHover is requested
+                if(slider.settings.tickerHover && !slider.usingCSS){
+                    // on el hover
+                    slider.viewport.hover(function(){
+                        el.stop();
+                    }, function(){
+                        // calculate the total width of children (used to calculate the speed ratio)
+                        var totalDimens = 0;
+                        slider.children.each(function(index){
+                            totalDimens += slider.settings.mode == 'horizontal' ? $(this).outerWidth(true) : $(this).outerHeight(true);
+                        });
+                        // calculate the speed ratio (used to determine the new speed to finish the paused animation)
+                        var ratio = slider.settings.speed / totalDimens;
+                        // determine which property to use
+                        var property = slider.settings.mode == 'horizontal' ? 'left' : 'top';
+                        // calculate the new speed
+                        var newSpeed = ratio * (totalDimens - (Math.abs(parseInt(el.css(property)))));
+                        tickerLoop(newSpeed);
+                    });
+                }
+                // start the ticker loop
+                tickerLoop();
+            }
+
+            /**
+             * Runs a continuous loop, news ticker-style
+             */
+            var tickerLoop = function(resumeSpeed){
+                speed = resumeSpeed ? resumeSpeed : slider.settings.speed;
+                var position = {left: 0, top: 0};
+                var reset = {left: 0, top: 0};
+                // if "next" animate left position to last child, then reset left to 0
+                if(slider.settings.autoDirection == 'next'){
+                    position = el.find('.bx-clone').first().position();
+                    // if "prev" animate left position to 0, then reset left to first non-clone child
+                }else{
+                    reset = slider.children.first().position();
+                }
+                var animateProperty = slider.settings.mode == 'horizontal' ? -position.left : -position.top;
+                var resetValue = slider.settings.mode == 'horizontal' ? -reset.left : -reset.top;
+                var params = {resetValue: resetValue};
+                setPositionProperty(animateProperty, 'ticker', speed, params);
+            }
+
+            /**
+             * Initializes touch events
+             */
+            var initTouch = function(){
+                // initialize object to contain all touch values
+                slider.touch = {
+                    start: {x: 0, y: 0},
+                    end: {x: 0, y: 0}
+                }
+                slider.viewport.bind('touchstart', onTouchStart);
+            }
+
+            /**
+             * Event handler for "touchstart"
+             *
+             * @param e (event)
+             *  - DOM event object
+             */
+            var onTouchStart = function(e){
+                if(slider.working){
+                    e.preventDefault();
+                }else{
+                    // record the original position when touch starts
+                    slider.touch.originalPos = el.position();
+                    var orig = e.originalEvent;
+                    // record the starting touch x, y coordinates
+                    slider.touch.start.x = orig.changedTouches[0].pageX;
+                    slider.touch.start.y = orig.changedTouches[0].pageY;
+                    // bind a "touchmove" event to the viewport
+                    slider.viewport.bind('touchmove', onTouchMove);
+                    // bind a "touchend" event to the viewport
+                    slider.viewport.bind('touchend', onTouchEnd);
+                }
+            }
+
+            /**
+             * Event handler for "touchmove"
+             *
+             * @param e (event)
+             *  - DOM event object
+             */
+            var onTouchMove = function(e){
+                var orig = e.originalEvent;
+                // if scrolling on y axis, do not prevent default
+                var xMovement = Math.abs(orig.changedTouches[0].pageX - slider.touch.start.x);
+                var yMovement = Math.abs(orig.changedTouches[0].pageY - slider.touch.start.y);
+                // x axis swipe
+                if((xMovement * 3) > yMovement && slider.settings.preventDefaultSwipeX){
+                    e.preventDefault();
+                    // y axis swipe
+                }else if((yMovement * 3) > xMovement && slider.settings.preventDefaultSwipeY){
+                    e.preventDefault();
+                }
+                if(slider.settings.mode != 'fade' && slider.settings.oneToOneTouch){
+                    var value = 0;
+                    // if horizontal, drag along x axis
+                    if(slider.settings.mode == 'horizontal'){
+                        var change = orig.changedTouches[0].pageX - slider.touch.start.x;
+                        value = slider.touch.originalPos.left + change;
+                        // if vertical, drag along y axis
+                    }else{
+                        var change = orig.changedTouches[0].pageY - slider.touch.start.y;
+                        value = slider.touch.originalPos.top + change;
+                    }
+                    setPositionProperty(value, 'reset', 0);
+                }
+            }
+
+            /**
+             * Event handler for "touchend"
+             *
+             * @param e (event)
+             *  - DOM event object
+             */
+            var onTouchEnd = function(e){
+                slider.viewport.unbind('touchmove', onTouchMove);
+                var orig = e.originalEvent;
+                var value = 0;
+                // record end x, y positions
+                slider.touch.end.x = orig.changedTouches[0].pageX;
+                slider.touch.end.y = orig.changedTouches[0].pageY;
+                // if fade mode, check if absolute x distance clears the threshold
+                if(slider.settings.mode == 'fade'){
+                    var distance = Math.abs(slider.touch.start.x - slider.touch.end.x);
+                    if(distance >= slider.settings.swipeThreshold){
+                        slider.touch.start.x > slider.touch.end.x ? el.goToNextSlide() : el.goToPrevSlide();
+                        el.stopAuto();
+                    }
+                    // not fade mode
+                }else{
+                    var distance = 0;
+                    // calculate distance and el's animate property
+                    if(slider.settings.mode == 'horizontal'){
+                        distance = slider.touch.end.x - slider.touch.start.x;
+                        value = slider.touch.originalPos.left;
+                    }else{
+                        distance = slider.touch.end.y - slider.touch.start.y;
+                        value = slider.touch.originalPos.top;
+                    }
+                    // if not infinite loop and first / last slide, do not attempt a slide transition
+                    if(!slider.settings.infiniteLoop && ((slider.active.index == 0 && distance > 0) || (slider.active.last && distance < 0))){
+                        setPositionProperty(value, 'reset', 200);
+                    }else{
+                        // check if distance clears threshold
+                        if(Math.abs(distance) >= slider.settings.swipeThreshold){
+                            distance < 0 ? el.goToNextSlide() : el.goToPrevSlide();
+                            el.stopAuto();
+                        }else{
+                            // el.animate(property, 200);
+                            setPositionProperty(value, 'reset', 200);
+                        }
+                    }
+                }
+                slider.viewport.unbind('touchend', onTouchEnd);
+            }
+
+            /**
+             * Window resize event callback
+             */
+            var resizeWindow = function(e){
+                // don't do anything if slider isn't initialized.
+                if(!slider.initialized) return;
+                // get the new window dimens (again, thank you IE)
+                var windowWidthNew = $(window).width();
+                var windowHeightNew = $(window).height();
+                // make sure that it is a true window resize
+                // *we must check this because our dinosaur friend IE fires a window resize event when certain DOM elements
+                // are resized. Can you just die already?*
+                if(windowWidth != windowWidthNew || windowHeight != windowHeightNew){
+                    // set the new window dimens
+                    windowWidth = windowWidthNew;
+                    windowHeight = windowHeightNew;
+                    // update all dynamic elements
+                    el.redrawSlider();
+                    // Call user resize handler
+                    slider.settings.onSliderResize.call(el, slider.active.index);
+                }
+            }
+
+            /**
+             * ===================================================================================
+             * = PUBLIC FUNCTIONS
+             * ===================================================================================
+             */
+
+            /**
+             * Performs slide transition to the specified slide
+             *
+             * @param slideIndex (int)
+             *  - the destination slide's index (zero-based)
+             *
+             * @param direction (string)
+             *  - INTERNAL USE ONLY - the direction of travel ("prev" / "next")
+             */
+            el.goToSlide = function(slideIndex, direction){
+                // if plugin is currently in motion, ignore request
+                if(slider.working || slider.active.index == slideIndex) return;
+                // declare that plugin is in motion
+                slider.working = true;
+                // store the old index
+                slider.oldIndex = slider.active.index;
+                // if slideIndex is less than zero, set active index to last child (this happens during infinite loop)
+                if(slideIndex < 0){
+                    slider.active.index = getPagerQty() - 1;
+                    // if slideIndex is greater than children length, set active index to 0 (this happens during infinite loop)
+                }else if(slideIndex >= getPagerQty()){
+                    slider.active.index = 0;
+                    // set active index to requested slide
+                }else{
+                    slider.active.index = slideIndex;
+                }
+                // onSlideBefore, onSlideNext, onSlidePrev callbacks
+                slider.settings.onSlideBefore(slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index);
+                if(direction == 'next'){
+                    slider.settings.onSlideNext(slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index);
+                }else if(direction == 'prev'){
+                    slider.settings.onSlidePrev(slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index);
+                }
+                // check if last slide
+                slider.active.last = slider.active.index >= getPagerQty() - 1;
+                // update the pager with active class
+                if(slider.settings.pager) updatePagerActive(slider.active.index);
+                // // check for direction control update
+                if(slider.settings.controls) updateDirectionControls();
+                // if slider is set to mode: "fade"
+                if(slider.settings.mode == 'fade'){
+                    // if adaptiveHeight is true and next height is different from current height, animate to the new height
+                    if(slider.settings.adaptiveHeight && slider.viewport.height() != getViewportHeight()){
+                        slider.viewport.animate({height: getViewportHeight()}, slider.settings.adaptiveHeightSpeed);
+                    }
+                    // fade out the visible child and reset its z-index value
+                    slider.children.filter(':visible').fadeOut(slider.settings.speed).css({zIndex: 0});
+                    // fade in the newly requested slide
+                    slider.children.eq(slider.active.index).css('zIndex', slider.settings.slideZIndex+1).fadeIn(slider.settings.speed, function(){
+                        $(this).css('zIndex', slider.settings.slideZIndex);
+                        updateAfterSlideTransition();
+                    });
+                    // slider mode is not "fade"
+                }else{
+                    // if adaptiveHeight is true and next height is different from current height, animate to the new height
+                    if(slider.settings.adaptiveHeight && slider.viewport.height() != getViewportHeight()){
+                        slider.viewport.animate({height: getViewportHeight()}, slider.settings.adaptiveHeightSpeed);
+                    }
+                    var moveBy = 0;
+                    var position = {left: 0, top: 0};
+                    // if carousel and not infinite loop
+                    if(!slider.settings.infiniteLoop && slider.carousel && slider.active.last){
+                        if(slider.settings.mode == 'horizontal'){
+                            // get the last child position
+                            var lastChild = slider.children.eq(slider.children.length - 1);
+                            position = lastChild.position();
+                            // calculate the position of the last slide
+                            moveBy = slider.viewport.width() - lastChild.outerWidth();
+                        }else{
+                            // get last showing index position
+                            var lastShowingIndex = slider.children.length - slider.settings.minSlides;
+                            position = slider.children.eq(lastShowingIndex).position();
+                        }
+                        // horizontal carousel, going previous while on first slide (infiniteLoop mode)
+                    }else if(slider.carousel && slider.active.last && direction == 'prev'){
+                        // get the last child position
+                        var eq = slider.settings.moveSlides == 1 ? slider.settings.maxSlides - getMoveBy() : ((getPagerQty() - 1) * getMoveBy()) - (slider.children.length - slider.settings.maxSlides);
+                        var lastChild = el.children('.bx-clone').eq(eq);
+                        position = lastChild.position();
+                        // if infinite loop and "Next" is clicked on the last slide
+                    }else if(direction == 'next' && slider.active.index == 0){
+                        // get the last clone position
+                        position = el.find('> .bx-clone').eq(slider.settings.maxSlides).position();
+                        slider.active.last = false;
+                        // normal non-zero requests
+                    }else if(slideIndex >= 0){
+                        var requestEl = slideIndex * getMoveBy();
+                        position = slider.children.eq(requestEl).position();
+                    }
+
+                    /* If the position doesn't exist
+                     * (e.g. if you destroy the slider on a next click),
+                     * it doesn't throw an error.
+                     */
+                    if ("undefined" !== typeof(position)) {
+                        var value = slider.settings.mode == 'horizontal' ? -(position.left - moveBy) : -position.top;
+                        // plugin values to be animated
+                        setPositionProperty(value, 'slide', slider.settings.speed);
+                    }
+                }
+            }
+
+            /**
+             * Transitions to the next slide in the show
+             */
+            el.goToNextSlide = function(){
+                // if infiniteLoop is false and last page is showing, disregard call
+                if (!slider.settings.infiniteLoop && slider.active.last) return;
+                var pagerIndex = parseInt(slider.active.index) + 1;
+                el.goToSlide(pagerIndex, 'next');
+            }
+
+            /**
+             * Transitions to the prev slide in the show
+             */
+            el.goToPrevSlide = function(){
+                // if infiniteLoop is false and last page is showing, disregard call
+                if (!slider.settings.infiniteLoop && slider.active.index == 0) return;
+                var pagerIndex = parseInt(slider.active.index) - 1;
+                el.goToSlide(pagerIndex, 'prev');
+            }
+
+            /**
+             * Starts the auto show
+             *
+             * @param preventControlUpdate (boolean)
+             *  - if true, auto controls state will not be updated
+             */
+            el.startAuto = function(preventControlUpdate){
+                // if an interval already exists, disregard call
+                if(slider.interval) return;
+                // create an interval
+                slider.interval = setInterval(function(){
+                    slider.settings.autoDirection == 'next' ? el.goToNextSlide() : el.goToPrevSlide();
+                }, slider.settings.pause);
+                // if auto controls are displayed and preventControlUpdate is not true
+                if (slider.settings.autoControls && preventControlUpdate != true) updateAutoControls('stop');
+            }
+
+            /**
+             * Stops the auto show
+             *
+             * @param preventControlUpdate (boolean)
+             *  - if true, auto controls state will not be updated
+             */
+            el.stopAuto = function(preventControlUpdate){
+                // if no interval exists, disregard call
+                if(!slider.interval) return;
+                // clear the interval
+                clearInterval(slider.interval);
+                slider.interval = null;
+                // if auto controls are displayed and preventControlUpdate is not true
+                if (slider.settings.autoControls && preventControlUpdate != true) updateAutoControls('start');
+            }
+
+            /**
+             * Returns current slide index (zero-based)
+             */
+            el.getCurrentSlide = function(){
+                return slider.active.index;
+            }
+
+            /**
+             * Returns current slide element
+             */
+            el.getCurrentSlideElement = function(){
+                return slider.children.eq(slider.active.index);
+            }
+
+            /**
+             * Returns number of slides in show
+             */
+            el.getSlideCount = function(){
+                return slider.children.length;
+            }
+
+            /**
+             * Update all dynamic slider elements
+             */
+            el.redrawSlider = function(){
+                // resize all children in ratio to new screen size
+                slider.children.add(el.find('.bx-clone')).width(getSlideWidth());
+                // adjust the height
+                slider.viewport.css('height', getViewportHeight());
+                // update the slide position
+                if(!slider.settings.ticker) setSlidePosition();
+                // if active.last was true before the screen resize, we want
+                // to keep it last no matter what screen size we end on
+                if (slider.active.last) slider.active.index = getPagerQty() - 1;
+                // if the active index (page) no longer exists due to the resize, simply set the index as last
+                if (slider.active.index >= getPagerQty()) slider.active.last = true;
+                // if a pager is being displayed and a custom pager is not being used, update it
+                if(slider.settings.pager && !slider.settings.pagerCustom){
+                    populatePager();
+                    updatePagerActive(slider.active.index);
+                }
+            }
+
+            /**
+             * Destroy the current instance of the slider (revert everything back to original state)
+             */
+            el.destroySlider = function(){
+                // don't do anything if slider has already been destroyed
+                if(!slider.initialized) return;
+                slider.initialized = false;
+                $('.bx-clone', this).remove();
+                slider.children.each(function() {
+                    $(this).data("origStyle") != undefined ? $(this).attr("style", $(this).data("origStyle")) : $(this).removeAttr('style');
+                });
+                $(this).data("origStyle") != undefined ? this.attr("style", $(this).data("origStyle")) : $(this).removeAttr('style');
+                $(this).unwrap().unwrap();
+                if(slider.controls.el) slider.controls.el.remove();
+                if(slider.controls.next) slider.controls.next.remove();
+                if(slider.controls.prev) slider.controls.prev.remove();
+                if(slider.pagerEl && slider.settings.controls) slider.pagerEl.remove();
+                $('.bx-caption', this).remove();
+                if(slider.controls.autoEl) slider.controls.autoEl.remove();
+                clearInterval(slider.interval);
+                if(slider.settings.responsive) $(window).unbind('resize', resizeWindow);
+            }
+
+            /**
+             * Reload the slider (revert all DOM changes, and re-initialize)
+             */
+            el.reloadSlider = function(settings){
+                if (settings != undefined) options = settings;
+                el.destroySlider();
+                init();
+            }
+
+            init();
+
+            // returns the current jQuery object
+            return this;
+        }
+
+    })(jQuery);
+
+</script>
+
+<script></script>
+<script>
+    var homeid= $("#RoadNumbercurrentUserId").text()
+
+    if(homeid == '3'){
+        $('#home').attr('href','http://qingtian.zjdmwh.cn/')
+    }
+
+     if(homeid == '14'){
+        $('#home').attr('href','http://jinyun.zjdmwh.cn/')
+         $('#erweima').attr('href','http://dmfw.mca.gov.cn/online/map.html')
+         $('#erweima div').html('地名查询')
+         $('#erweima .iconfont').html('&#xe843')
+    }
+
+    if(homeid == '15'){
+        $('#home').attr('href','http://songyang.zjdmwh.cn/')
+        $('#erweima').attr('href','')
+        $('#erweima div').html('休闲之旅')
+        $('#erweima .iconfont').html('&#xe843')
+    }
+
+    if(homeid == '16'){
+        $('#home').attr('href','http://qingyuan.zjdmwh.cn/')
+        $('#erweima').attr('href','http://dmfw.mca.gov.cn/online/map.html')
+        $('#erweima div').html('地名查询')
+        $('#erweima .iconfont').html('&#xe843')
+    }
+
+
+
+    var min = $("#roadnumberMin").text()
+    var max = $("#roadnumberMax").text()
+    if(max == 'roadnumberMax'){
+        $('#jt2').html('')
+    }
+    else {
+        $('#jt2').html('<div>></div>')
+    }
+
+    if(min == 'roadnumberMin'){
+        $('#jt1').html('')
+    }
+    else {
+        $('#jt1').html('<div><</div>')
+
+    }
+
+
+
+    var  leftnumberUrl=$("#leftnumberUrl").text();
+
+    var  rightplatenumberUrl=$("#rightplatenumberUrl").text();
+
+    if(homeid=="3") {
+        $('#jt1').attr('href', 'http://qingtian.vrplanner.cn:80/API/LS/Roadnumber/hh?url=' + leftnumberUrl);
+
+        $('#jt2').attr('href', 'http://qingtian.vrplanner.cn:80/API/LS/Roadnumber/hh?url=' + rightplatenumberUrl);
+    }
+
+    if(homeid=="14"){
+
+        $('#jt1').attr('href', 'http://jinyun.vrplanner.cn:80/API/LS/Roadnumber/hh?url=' + leftnumberUrl);
+
+        $('#jt2').attr('href', 'http://jinyun.vrplanner.cn:80/API/LS/Roadnumber/hh?url=' + rightplatenumberUrl);
+    }
+
+    if(homeid=="15"){
+
+        $('#jt1').attr('href', 'http://songyang.vrplanner.cn:80/API/LS/Roadnumber/hh?url=' + leftnumberUrl);
+
+        $('#jt2').attr('href', 'http://songyang.vrplanner.cn:80/API/LS/Roadnumber/hh?url=' + rightplatenumberUrl);
+    }
+
+
+
+    if(homeid=="16"){
+
+        $('#jt1').attr('href', 'http://qingyuan.zjdmwh.cn:80/API/LS/Roadnumber/hh?url=' + leftnumberUrl);
+
+        $('#jt2').attr('href', 'http://qingyuan.zjdmwh.cn:80/API/LS/Roadnumber/hh?url=' + rightplatenumberUrl);
+    }
+
+    function is_weixn(){
+        var ua = navigator.userAgent.toLowerCase();
+        console.log(homeid)
+        if(homeid == '3'){
+            if(ua.match(/MicroMessenger/i)=="micromessenger") {
+                $('#erweima').attr('href','https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA5MzEwNDU1Mg==&scene=124#wechat_redirect')
+            } else {
+                $('#erweima').attr('href','https://open.weixin.qq.com/qr/code?username=gh_70317853fefe')
+            }
+        }
+         if(homeid == '14'){
+
+        }
+
+         if(homeid=='16'){
+
+             // if(ua.match(/MicroMessenger/i)=="micromessenger") {
+             //     $('#erweima').attr('href','https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA5MzEwNDU1Mg==&scene=124#wechat_redirect')
+             // } else {
+             //     $('#erweima').attr('href','https://open.weixin.qq.com/qr/code?username=gh_70317853fefe')
+             // }
+         }
+
+
+
+    }
+    is_weixn()
+
+    $('#chineseplay').on('click', function () {
+        var chineseplayer = $("#chineseplayer")[0];
+        var englishplayer = $("#englishplayer")[0];
+        var dialectplayer = $("#dialectplayer")[0];
+        $('.mandarinWord').css('display','block')
+        $('.englishWord').css('display','none')
+        if (chineseplayer.paused) { /*如果已经暂停*/
+            chineseplayer.play(); /*播放*/
+            $('#chineseplay').val('暂停')
+            englishplayer.load();
+            $('#englishplay').val('English')
+            dialectplayer.load();/*暂停*/
+            $('#dialectplay').val('方言')
+        } else {
+            chineseplayer.pause();/*暂停*/
+            $('#chineseplay').val('播放')
+        }
+    })
+
+    $('#englishplay').on('click', function () {
+        var chineseplayer = $("#chineseplayer")[0];
+        var englishplayer = $("#englishplayer")[0];
+        var dialectplayer = $("#dialectplayer")[0];
+        $('.mandarinWord').css('display','none')
+        $('.englishWord').css('display','block')
+        if (englishplayer.paused) { /*如果已经暂停*/
+            englishplayer.play(); /*播放*/
+            $('#englishplay').val('暂停')
+            chineseplayer.load();/*暂停*/
+            $('#chineseplay').val('普通话')
+            dialectplayer.load();/*暂停*/
+            $('#dialectplay').val('方言')
+        } else {
+            englishplayer.pause();/*暂停*/
+            $('#englishplay').val('播放')
+        }
+    })
+
+    $('#dialectplay').on('click', function () {
+        var chineseplayer = $("#chineseplayer")[0];
+        var englishplayer = $("#englishplayer")[0];
+        var dialectplayer = $("#dialectplayer")[0];
+        if (dialectplayer.paused) { /*如果已经暂停*/
+            dialectplayer.play(); /*播放*/
+            $('#dialectplay').val('暂停')
+            chineseplayer.load();/*暂停*/
+            $('#chineseplay').val('普通话')
+            englishplayer.load();
+            $('#englishplay').val('English')
+        } else {
+            dialectplayer.pause();/*暂停*/
+            $('#dialectplay').val('播放')
+        }
+    })
+
+
+    console.log("文本至"+$("#img").text());
+
+    var str=$("#img").text();
+
+    str=str.substring(2,str.length-1);
+
+
+    var a=str.split(',');
+
+    $.each( a, function(i, n){
+
+        console.log(n);
+
+        n=n.trim();
+
+        if(homeid=="3"){
+            $(".carousels").append("<div style='width:100%;height: 170px;     display: flex;\n" +
+                "    justify-content: center;\n" +
+                "    align-items: center;' ><img style='width:100%;height: 100%; margin: 0 auto' src='http://qingtian.vrplanner.cn:80/API"+n+"'></div>");
+
+        }
+
+        if(homeid=="14"){
+            $(".carousels").append("<div style='width:100%;height: 170px;     display: flex;\n" +
+                "    justify-content: center;\n" +
+                "    align-items: center;' ><img style='width:100%;height: 100%; margin: 0 auto' src='http://jinyun.vrplanner.cn:80/API"+n+"'></div>");
+        }
+
+        if(homeid=="15"){
+            $(".carousels").append("<div style='width:100%;height: 170px;     display: flex;\n" +
+                "    justify-content: center;\n" +
+                "    align-items: center;' ><img style='width:100%;height: 100%; margin: 0 auto' src='http://songyang.vrplanner.cn:80/API"+n+"'></div>");
+        }
+
+
+
+        if(homeid=="16"){
+            $(".carousels").append("<div style='width:100%;height: 170px;     display: flex;\n" +
+                "    justify-content: center;\n" +
+                "    align-items: center;' ><img style='width:100%;height: 100%; margin: 0 auto' src='http://qingyuan.zjdmwh.cn:80/API"+n+"'></div>");
+        }
+
+
+    });
+
+    var s1=$("#roadnumbermandarinVoice").text().trim();
+
+    var s2=$("#roadnumberenglishVoice").text().trim();
+
+    var s3=$("#roadnumberdialectVoice").text().trim();
+
+     if(homeid=="3") {
+
+         $(".audio").append("<audio class='audioitem' id='chineseplayer' controls='controls'><source src='http://qingtian.vrplanner.cn:80/API" + s1 + "'  type='audio/mpeg' />");
+
+         $(".audio").append("<audio class='audioitem' id='englishplayer' controls='controls'><source src='http://qingtian.vrplanner.cn:80/API" + s2 + "'  type='audio/mpeg' />");
+
+         $(".audio").append("<audio class='audioitem' id='dialectplayer' controls='controls'><source src='http://qingtian.vrplanner.cn:80/API" + s3 + "'  type='audio/mpeg' />");
+         if (s3 !== '') {
+             $('.fangyan').css('display', 'block')
+         }
+     }
+
+     if(homeid=="14"){
+
+         $(".audio").append("<audio class='audioitem' id='chineseplayer' controls='controls'><source src='http://jinyun.vrplanner.cn:80/API" + s1 + "'  type='audio/mpeg' />");
+
+         $(".audio").append("<audio class='audioitem' id='englishplayer' controls='controls'><source src='http://jinyun.vrplanner.cn:80/API" + s2 + "'  type='audio/mpeg' />");
+
+         $(".audio").append("<audio class='audioitem' id='dialectplayer' controls='controls'><source src='http://jinyun.vrplanner.cn:80/API" + s3 + "'  type='audio/mpeg' />");
+         if (s3 !== '') {
+             $('.fangyan').css('display', 'block')
+         }
+
+     }
+
+    if(homeid=="15"){
+
+        $(".audio").append("<audio class='audioitem' id='chineseplayer' controls='controls'><source src='http://songyang.vrplanner.cn:80/API" + s1 + "'  type='audio/mpeg' />");
+
+        $(".audio").append("<audio class='audioitem' id='englishplayer' controls='controls'><source src='http://songyang.vrplanner.cn:80/API" + s2 + "'  type='audio/mpeg' />");
+
+        $(".audio").append("<audio class='audioitem' id='dialectplayer' controls='controls'><source src='http://songyang.vrplanner.cn:80/API" + s3 + "'  type='audio/mpeg' />");
+        if (s3 !== '') {
+            $('.fangyan').css('display', 'block')
+        }
+
+    }
+
+
+    if(homeid=="16"){
+
+        $(".audio").append("<audio class='audioitem' id='chineseplayer' controls='controls'><source src='http://qingyuan.zjdmwh.cn:80/API" + s1 + "'  type='audio/mpeg' />");
+
+        $(".audio").append("<audio class='audioitem' id='englishplayer' controls='controls'><source src='http://qingyuan.zjdmwh.cn:80/API" + s2 + "'  type='audio/mpeg' />");
+
+        $(".audio").append("<audio class='audioitem' id='dialectplayer' controls='controls'><source src='http://qingyuan.zjdmwh.cn:80/API" + s3 + "'  type='audio/mpeg' />");
+        if (s3 !== '') {
+            $('.fangyan').css('display', 'block')
+        }
+
+    }
+
+
+
+
+
+</script>
+
+
+<script type="text/javascript"
+        src="https://webapi.amap.com/maps?v=1.4.15&key=7c38d01a2af1ca67bb7099d50c5b30aa"></script>
+<script>
+
+    var homeid= $("#RoadNumbercurrentUserId").text()
+
+    var id = $("#RoadNumbercurrentUserId").text();
+    var Name =$('#Name').text()
+    var long=$("#lonandlat").text();
+    console.log("经纬度"+long);
+    var aaa = {
+
+        //青田
+        "3宝幢街":[
+            [120.288777, 28.139747], [120.287409, 28.14048], [120.287243, 28.140532], [120.287109, 28.140541], [120.286556, 28.140499], [120.286003, 28.140457], [120.284706, 28.140045]],
+
+        "3圣旨街":[
+            [120.287989, 28.138526], [120.286905, 28.13934], [120.286776, 28.139501], [120.286605, 28.140045], [120.286546, 28.14048]
+        ],
+
+        "3龙津路":[
+            [120.290686, 28.134661], [120.290884, 28.138952]
+        ],
+
+        "3新大街":[
+            [120.287173, 28.137259], [120.289142, 28.14031]
+        ],
+
+        "3鸣山路":[
+            [120.291866, 28.133452], [120.293406, 28.135032]
+        ],
+
+        "3校场路":[
+            [120.29338, 28.13215], [120.2953, 28.134037]
+        ],
+
+        "3马鞍山":[
+            [120.296373, 28.129954], [120.298599, 28.132878]
+        ],
+
+        "3西门街":[
+            [120.28234, 28.14398], [120.282705, 28.144127], [120.282876, 28.144122], [120.283209, 28.144255], [120.284003, 28.144789]
+        ],
+
+        "3西门山":[
+            [120.285194, 28.143318], [120.285317, 28.143436], [120.285344, 28.14355], [120.285285, 28.144004], [120.285221, 28.14408], [120.28507, 28.144108], [120.284748, 28.144122],
+            [120.284652, 28.144259], [120.284673, 28.144326], [120.28484, 28.14451], [120.285044, 28.144628], [120.285285, 28.144832], [120.285768, 28.145697], [120.285859, 28.14573], [120.285934, 28.145707],
+            [120.285972, 28.145655], [120.285972, 28.145494], [120.285682, 28.14504], [120.285677, 28.144945], [120.285703, 28.144879], [120.285811, 28.144879], [120.286229, 28.145447], [120.286449, 28.145707],
+            [120.286653, 28.146237], [120.286937, 28.146431], [120.287248, 28.146913], [120.287677, 28.147121], [120.288042, 28.147329], [120.288225, 28.147585], [120.288327, 28.147925], [120.288412, 28.148034],
+            [120.288498, 28.1481], [120.288579, 28.148114], [120.288691, 28.14811], [120.288788, 28.148039], [120.28889, 28.14785], [120.289174, 28.146984], [120.289324, 28.146861], [120.289635, 28.146795],
+            [120.290118, 28.146785]
+        ],
+
+        "3公园路":[
+            [120.288037, 28.141162], [120.288514, 28.141635], [120.288484, 28.14194], [120.287973, 28.142463], [120.288294, 28.142964], [120.288026, 28.143082]
+        ],
+
+        "3消防路":[
+            [120.296365, 28.132049], [120.297154, 28.133256]
+        ],
+
+        "3体育馆":[
+            [120.297564, 28.129212], [120.298707, 28.130593]
+        ],
+
+        "3临江西":[
+            [120.287155, 28.13725], [120.286331, 28.137973], [120.28617, 28.138119], [120.285677, 28.138933], [120.285618, 28.13899], [120.285349, 28.139132], [120.285113, 28.139359], [120.282431, 28.143626], [120.28234, 28.143961]
+        ],
+
+        "3临江东":[
+            [120.300568, 28.12784], [120.300413, 28.127845], [120.299511, 28.128143], [120.297607, 28.129202], [120.295365, 28.130608], [120.293315, 28.132211], [120.29191, 28.133394], [120.291331, 28.134108], [120.290977, 28.134453],
+            [120.290445, 28.134789], [120.289947, 28.135106], [120.288439, 28.136024], [120.288042, 28.136312], [120.287184, 28.137225]
+        ],
+
+        "3后街":[
+            [120.284335, 28.142448], [120.284727, 28.142363], [120.285006, 28.142235], [120.285242, 28.142074], [120.285322, 28.142022], [120.286068, 28.141856], [120.28676, 28.141592], [120.286873, 28.141549]
+        ],
+
+        "3前路街":[
+            [120.286572, 28.139397], [120.287527, 28.137751], [120.288396, 28.13627], [120.28845, 28.136052]
+        ],
+
+        "3少年宫":[
+            [120.288021, 28.138503], [120.28897, 28.138015], [120.289147, 28.138001], [120.290794, 28.13794]
+        ],
+
+        "3塔山路":[
+            [120.294635, 28.133271], [120.294957, 28.132916], [120.297435, 28.131412], [120.299195, 28.130234], [120.300461, 28.129335], [120.300788, 28.129231]
+        ],
+
+        "3鹤城西":[
+            [120.286869, 28.142043], [120.284814, 28.143594], [120.284573, 28.143764], [120.283993, 28.144829], [120.283832, 28.145174], [120.283666, 28.145396], [120.283553, 28.145524],
+            [120.283312, 28.145628], [120.28276, 28.145718], [120.281445, 28.145704]
+        ],
+
+        "3鹤城中":[
+            [120.286889, 28.142023], [120.289126, 28.140329], [120.2908, 28.139047], [120.29088, 28.138976]
+        ],
+
+        "3鹤城东":[
+            [120.290901, 28.138962], [120.29154, 28.13819], [120.292961, 28.135735], [120.293079, 28.135461], [120.293423, 28.135026], [120.293562, 28.134898], [120.294024, 28.134624],
+            [120.294469, 28.134425], [120.294919, 28.134245], [120.295343, 28.134018], [120.297113, 28.133271], [120.297977, 28.133025], [120.298589, 28.132897], [120.299356, 28.132812], [120.299603, 28.132675],
+            [120.299651, 28.132637], [120.299763, 28.132452], [120.299828, 28.132183], [120.299817, 28.131856], [120.29978, 28.131213], [120.299796, 28.131038], [120.300514, 28.129973]
+        ],
+
+        "3新建岭":[
+            [120.290918, 28.13899], [120.291921, 28.139756], [120.292087, 28.139941], [120.292141, 28.140172], [120.292135, 28.140381], [120.29198, 28.140603], [120.291765, 28.140849], [120.291577, 28.140929],
+            [120.291105, 28.140698], [120.291014, 28.140693], [120.290842, 28.140754], [120.290639, 28.140972], [120.290392, 28.141], [120.290188, 28.141109], [120.290006, 28.141284], [120.289464, 28.142348], [120.289464, 28.142325],
+            [120.289308, 28.142732], [120.289335, 28.142982], [120.289346, 28.143001], [120.289614, 28.143252], [120.289716, 28.143342], [120.289845, 28.143569], [120.290129, 28.143616], [120.29058, 28.14364], [120.290869, 28.143777],
+            [120.290987, 28.143985], [120.291009, 28.144217], [120.290789, 28.144661], [120.290692, 28.144941], [120.290585, 28.145229], [120.290504, 28.145442], [120.290429, 28.145693], [120.290354, 28.145929], [120.290274, 28.146137],
+            [120.29014, 28.146487], [120.290097, 28.146601], [120.290131, 28.146751]
+        ],
+
+        "3江南大":[
+            [120.30179, 28.122474], [120.301157, 28.122649], [120.299682, 28.122569], [120.29922, 28.122488], [120.298652, 28.122659], [120.296544, 28.124641], [120.296179, 28.12484], [120.294827, 28.12528], [120.293974, 28.125597],
+            [120.293781, 28.12571], [120.292751, 28.126443], [120.29186, 28.127252], [120.291217, 28.127853], [120.289951, 28.129008], [120.287778, 28.131042], [120.285434, 28.13319], [120.28346, 28.135058], [120.281287, 28.138067], [120.279565, 28.140418],
+            [120.277816, 28.14275], [120.27611, 28.145181], [120.276121, 28.145181]
+        ],
+
+        "3龙东路":[
+            [120.294581,28.133299],[120.294013,28.133521],[120.293262,28.133663],[120.292548,28.134188],[120.291781,28.13495],[120.290762,28.135783]
+        ],
+
+        "3学士路":[
+            [120.286527,28.140549],[120.286489,28.14096],[120.286564,28.141145],[120.287085,28.14184]
+        ],
+
+        "3涌泉街":[
+            [120.291797,28.134969],[120.292377,28.135456],[120.292924,28.135712]
+        ],
+
+        "3横石条":[
+            [120.285618,28.139009],[120.286739,28.139496]
+        ],
+
+        "3沙巷":[
+            [120.286234,28.139307],[120.286073,28.140433]
+        ],
+
+        "3菜场巷":[
+            [120.288863,28.138115],[120.290751,28.139047]
+        ],
+
+        "3杏林街":[
+            [120.298927,28.130461],[120.299586,28.131307]
+        ],
+
+
+//缙云
+
+        "14电力路":[
+            [120.074313,28.647439],[120.075455,28.647147]
+            ,[120.076394,28.647128],[120.076421,28.647136]
+            ,[120.077118,28.647852],[120.078266,28.648972]
+            ,[120.078862,28.649546]
+        ],
+
+
+        "14剧院巷":[
+            [120.06728,28.648860],[120.06971,28.648681]
+        ],
+
+
+        "14南塘路":[
+
+            [120.075638,28.650398],[120.075123,28.650798],[120.07433,28.652196],[120.074254,28.652276],[120.072747,28.653147],[120.070896,28.653213]
+        ],
+
+        "14大桥南":[
+
+            [120.065838,28.645959],[120.065757,28.644071],[120.065392,28.643369],[120.064432,28.642216],[120.063708,28.641001],[120.063617,28.640771],[120.063477,28.639881],
+            [120.063461,28.639678],[120.063912,28.635347],[120.063649,28.633388],[120.063086,28.630954],[120.063102,28.630685],[120.063488,28.630158]
+        ],
+
+
+        "14寺后东":[
+
+            [120.072169,28.653258],[120.071917,28.656841]
+        ],
+
+
+        "14寺后路":[
+            [120.069578,28.647233], [120.069589,28.647661], [120.069910,28.650410], [120.069814,28.650688], [120.069867,28.650933], [120.070731,28.653169],
+        ],
+
+
+        "14旭山路":[
+
+            [120.094158,28.660588],[120.093852,28.660809],[120.078408,28.660465],[120.07337,28.657034]
+        ],
+
+
+
+        "14朝晖路":[
+            [120.075119,28.650804],[120.07572,28.651124],[120.076406,28.652649],[120.076449,28.652715],[120.076986,28.653737],[120.077238,28.654405],[120.077291,28.654673],[120.077324,28.654899],
+        [120.077308,28.657004]
+    ],
+
+
+        "14溪滨南":[
+            [120.065882,28.646009],[120.069744,28.646286],[120.070291,28.646291],[120.072029,28.646630],[120.072174,28.646635],[120.072786,28.64655],[120.073177,28.646597],
+            [120.075436,28.648570],[120.079454,28.652463]
+
+        ],
+
+
+        "14缙中路":[
+            [120.072732,28.653216],[120.07395,28.653715],[120.077018,28.653734],[120.078424,28.653979],[120.078333,28.654506],[120.078037,28.654671],[120.077319,28.654661]
+        ],
+
+
+
+        "14胜利街":[
+
+            [120.066287,28.647976],[120.067386,28.647788],[120.068416,28.647830],[120.069092,28.647788],[120.070809,28.647355]
+        ],
+
+
+        "14迎晖路":[
+            [120.075784,28.648877],[120.077897,28.647314],[120.078283,28.647347]
+        ],
+
+
+        "14黄龙路":[
+
+            [120.094511,28.658353],[120.088894,28.658080],[120.08081,28.656993],[120.073761,28.657068],[120.063365,28.655910]
+        ],
+
+        "14问渔路":[
+
+            [120.098051,28.657379],[120.100465,28.657614],[120.104467,28.659563],[120.104971,28.659667],[120.107106,28.659441],[120.108415,28.659375],
+            [120.111956,28.660392],[120.113984,28.660881]
+        ],
+
+
+        "14问渔西":[
+            [120.098051,28.657379],[120.086271,28.654074],[120.085359,28.653999],[120.08257,28.654875],[120.080553,28.654376]
+        ],
+
+
+        "14蓬莱路":[
+            [120.086099,28.651980],[120.090702,28.653072],[120.091576,28.653180],[120.098459,28.653815]
+
+        ],
+
+
+        "14鼎湖南":[
+
+    [120.098298,28.657082],[120.098480,28.653020],[120.098171,28.651214],[120.097136,28.650522],[120.096970,28.650526],[120.091932,28.650912],
+        [120.091466,28.650931],[120.089706,28.650672],[120.087614,28.649834],[120.08476,28.648055],[120.083913,28.647782],[120.082926,28.647697],[120.081273,28.647890],
+        [120.079095,28.648742]
+
+        ],
+
+
+        "14鼎湖路":[
+
+            [120.098215,28.657607],[120.098242,28.658068],[120.097529,28.662653],[120.09755,28.663157],[120.098076,28.666188],[120.098494,28.668405]
+        ],
+
+
+        "14好溪路":[
+
+            [120.086162,28.654011],[120.08605,28.653282],[120.086087,28.651964],[120.086334,28.651173],[120.086827,28.650542],[120.086822,28.650533],[120.087605,28.649836]
+
+        ],
+
+
+        "14仙都路":[
+
+            [120.094442,28.660051],[120.094986,28.653531],[120.095083,28.65065]
+
+        ],
+
+
+        "14永宁路":[
+            [120.091811,28.658219],[120.09158,28.655324],[120.091526,28.650895]
+
+        ],
+
+
+        "14紫薇路":[
+            [120.087299,28.660695],[120.087471,28.658973],[120.086489,28.655668],[120.086178,28.654044]
+
+        ],
+
+
+        "14紫薇北":[
+
+            [120.08717,28.657848],[120.087471,28.658982],[120.08731,28.660719],[120.086943,28.663442],[120.086321,28.664185],[120.085742,28.664534],
+            [120.084921,28.664906],[120.084256,28.665819],[120.082979,28.666299],[120.080865,28.666275],[120.07968,28.666652],[120.07931,28.666882],[120.078966,28.667400],
+            [120.078945,28.669316],[120.078827,28.669561],[120.07872,28.669608],[120.078054,28.669641]
+        ],
+
+
+        "14彩云路":[
+            [120.092694,28.660913],[120.09285,28.658282],[120.09285,28.657985],[120.09248,28.657378],[120.09241,28.657081],[120.092448,28.656342],[120.092566,28.655575]
+
+        ],
+
+
+        "14独峰路":[
+
+            [120.090071,28.660800],[120.090211,28.658145],[120.090243,28.657783],[120.090538,28.656940],[120.090559,28.656662],[120.090576,28.655095]
+        ],
+
+
+        "14芙蓉路":[
+            [120.088907,28.658070],[120.088703,28.656757],[120.088258,28.656582],[120.088575,28.656272],[120.088612,28.656211],[120.088371,28.654681],
+        [120.088435,28.652609]
+        ],
+
+
+       "14翠竹路":[
+           [120.086751,28.656526],[120.084986,28.656418],[120.084487,28.656469],[120.083554,28.657321],[120.083548,28.657350],[120.083371,28.662598],
+        [120.084895,28.664909]
+       ],
+
+       "14花园巷":[
+           [120.08747,28.658969],[120.08498,28.658635],[120.083457,28.658592]
+
+       ],
+
+
+       "14安顺巷":[
+           [120.085308,28.660621],[120.085436,28.659336],[120.085093,28.659129],[120.085018,28.659054],[120.084986,28.658635],[120.08549,28.656446]
+
+       ],
+
+
+      "14溪滨北":[
+          [120.065863,28.647072],[120.069575,28.647222],[120.070449,28.64726],[120.072246,28.647599],[120.073083,28.647994],[120.079434,28.653676]
+      ],
+
+
+     "14大桥北":[
+         [120.065849,28.647072],[120.065913,28.647647],[120.06623,28.647985],[120.066573,28.648226],[120.066755,28.648743],[120.06565,28.651427],
+        [120.065323,28.651996],[120.064052,28.653103],[120.06395,28.653216],[120.063864,28.65346],[120.063923,28.654746],[120.063301,28.655904],[120.062668,28.657631],
+        [120.062673,28.658629],[120.06256,28.658992],[120.061997,28.659571],[120.061879,28.660150]
+     ],
+
+
+     "14朝晖北":[
+         [120.077303,28.657013],[120.077094,28.658392],[120.076927,28.658708],[120.076525,28.659221]
+
+     ],
+
+    "14寺后西":[
+        [120.069803,28.650705],[120.069396,28.650663],[120.069256,28.651741],[120.069326,28.652268],[120.069015,28.655158],[120.069723,28.656655]
+
+    ],
+
+
+    "14复兴街":[
+        [120.067272,28.647141],[120.067283,28.648854],[120.067197,28.649137],[120.066596,28.650568],[120.066274,28.650959],[120.065979,28.651241],[120.065679,28.651425]
+
+    ],
+
+
+    "14谢山路":[
+        [120.067982,28.646209],[120.068765,28.644510],[120.068856,28.644209],[120.069194,28.643832],[120.069913,28.642994],[120.070127,28.642650],[120.07112,28.640974],
+        [120.071281,28.640367],[120.071565,28.640226]
+    ],
+
+    "14白云路":[
+        [120.070326,28.646318],[120.070873,28.645739],[120.071238,28.645640],[120.071908,28.645706],[120.074515,28.644613]
+
+    ],
+
+
+        "14大桥西":[
+            [120.06585,28.647072],[120.065453,28.646949],[120.064434,28.646681],[120.06431,28.646634],[120.064069,28.646441],[120.063677,28.646017],[120.063007,28.644807],
+        [120.062717,28.644195],[120.062567,28.643729],[120.062127,28.64274],[120.061843,28.642067],[120.061317,28.640391],[120.061306,28.640302],[120.061296,28.64009],[120.061333,28.63976],
+        [120.061494,28.638974],[120.061521,28.638753],[120.061494,28.637759],[120.061365,28.636352],[120.06136,28.636243],[120.061151,28.635965],[120.061017,28.635914],[120.060824,28.635918],
+        [120.060534,28.635998],[120.059777,28.63694],[120.059246,28.638004],[120.059091,28.638169],[120.058801,28.638343],[120.058474,28.638442],[120.057884,28.63887],[120.05731,28.639045],
+        [120.056666,28.639068],[120.056038,28.639026],[120.054413,28.638475]
+        ],
+
+        "14风景山":[
+            [120.074608,28.647353],[120.074511,28.647197],[120.074559,28.647009],[120.075632,28.645088]
+        ],
+
+        "14寺后中":[
+            [120.069896,28.650975],[120.069751,28.652237],[120.070079,28.65226],[120.069966,28.653112]
+        ],
+
+        "14槐花街":[
+            [120.068405,28.647162],[120.0684,28.648174],[120.068421,28.648466],[120.068491,28.648791],
+            [120.068485,28.649276],[120.068561,28.649502],[120.068646,28.650316]
+        ],
+
+        "14水南街":[
+            [120.067289,28.64615],[120.067268,28.645815],[120.066822,28.645486],[120.066533,28.644747],
+            [120.066088,28.643951],[120.06575,28.643796]
+        ],
+
+        "14黄塘巷":[
+            [120.071404,28.65323],[120.071414,28.654303],[120.071441,28.654355],[120.071511,28.654407],
+            [120.071591,28.654435],[120.072096,28.654501]
+        ],
+
+        "14六塘巷":[
+            [120.072911,28.647901],[120.0726,28.648423],[120.072595,28.648522],[120.072965,28.649304],
+            [120.072938,28.649629],[120.072654,28.650128],[120.072391,28.650641]
+        ],
+
+        "14中心巷":[
+            [120.07248,28.653203],[120.072598,28.652921],[120.072603,28.652831],[120.072335,28.652384],
+            [120.071842,28.651993],[120.070951,28.651537]
+        ],
+
+        "14隔岙巷":[
+            [120.071815,28.65197],[120.071573,28.651518],[120.071428,28.651019],[120.071144,28.650459],
+            [120.06991,28.650426]
+        ],
+
+        "14仙李巷":[
+            [120.0713,28.647432],[120.07115,28.648359]
+        ],
+
+        "14健康巷":[
+            [120.066112,28.651118],[120.066734,28.651165],[120.066788,28.651245],[120.06726,28.651504],
+            [120.067678,28.65157],[120.067759,28.651518],[120.06793,28.65165],[120.068794,28.65182]
+        ],
+
+        "14文昌巷":[
+            [120.072244,28.647601],[120.071868,28.648501]
+        ],
+
+        "14鹿园巷":[
+            [120.070538,28.647422],[120.070677,28.648176]
+        ],
+
+        "14东门巷":[
+            [120.074223,28.648981],[120.073896,28.649386],[120.073757,28.64972]
+        ],
+
+        "14金井巷":[
+            [120.067817,28.648828],[120.067817,28.647802]
+        ],
+
+        "14狮子巷":[
+            [120.073659,28.648437],[120.073262,28.649087],[120.073305,28.649591],[120.073026,28.650551]
+
+        ],
+
+        //庆元
+        "16濛洲街":[
+            [119.085967,27.621173],[119.085307,27.620912],[119.078617,27.619073],[119.070571,27.618089],[119.063752,27.617480],[119.062444,27.617209],[119.062234,27.617219],[119.059772,27.618474]
+        ],
+        "16石龙街":[
+            [119.076708,27.620461],[119.074036,27.620465],[119.070184,27.620636],[119.069841,27.620594],[119.066022,27.619681],[119.064584,27.619301],[119.061859,27.619448],[119.061092,27.619691]
+        ],
+        "16江滨路":[
+            [119.060940,27.619903],[119.060612,27.620412],[119.060559,27.620792],[119.058649,27.622256],[119.058150,27.622422],[119.057581,27.623088],[119.055398,27.624827],[119.054057,27.625440],
+            [119.052056,27.626115],[119.049299,27.626020],[119.048199,27.625954],[119.041376,27.623207]
+        ],
+        "16大济路":[
+            [119.080604,27.616246],[119.076849,27.620320],[119.075980,27.621394],[119.075696,27.621570],[119.075433,27.621978],[119.076338,27.624675]
+        ],
+        "16兴贸路":[
+            [119.066895,27.614464],[119.066385,27.617654],[119.066031,27.619693]
+        ],
+        "16祥云路":[
+            [119.068974,27.614759],[119.068433,27.617854],[119.068288,27.619294],[119.068041,27.620178]
+        ],
+        "16云鹤路":[
+            [119.061845,27.614141],[119.062848,27.613970],[119.064120,27.614422],[119.064731,27.614992],[119.064919,27.617502],[119.064597,27.619313]
+        ],
+       "16新建路":[
+            [119.068958,27.623701],[119.068744,27.623591],[119.066684,27.622768],[119.065638,27.621884],[119.065257,27.621765],[119.064860,27.621770],[119.063245,27.622516],[119.057849,27.627654],
+            [119.052479,27.627607],[119.051138,27.627269],[119.049115,27.627578],[119.044985,27.626138],[119.042640,27.625069],[119.040366,27.623210]
+        ],
+        "16松源街":[
+            [119.063843,27.614383],[119.063682,27.620201],[119.063478,27.622074],[119.063360,27.622425]
+        ],
+        "16济川路":[
+            [119.064411,27.611574],[119.063859,27.614307]
+        ],
+        "16星光路":[
+            [119.061064,27.619669],[119.059830,27.618742],[119.059777,27.618675],[119.059782,27.618314],[119.059852,27.617981],[119.059825,27.617687],[119.059680,27.617387],[119.059321,27.617131],
+            [119.057599,27.616774],[119.057105,27.616693],[119.056424,27.616522],[119.055120,27.615880],[119.053184,27.614716],[119.052653,27.614198],[119.052106,27.613646]
+        ],
+        "16龙洲西":[
+            [119.072552,27.618320],[119.072235,27.620544]
+        ],
+        "16龙洲中":[
+            [119.074247,27.618524],[119.074037,27.620463]
+        ],
+        "16龙洲东":[
+            [119.075802,27.618738],[119.075566,27.619845],[119.075599,27.620459]
+        ],
+        "16菇源路":[
+            [119.057458,27.622699],[119.056567,27.622642],[119.055081,27.622856],[119.054641,27.622999],[119.050532,27.624620]
+        ],
+        "16市场路":[
+            [119.070310,27.619837],[119.066598,27.618801],[119.064801,27.618492]
+        ],
+        "16教场路":[
+            [119.059656,27.624067],[119.056888,27.627452],[119.056786,27.627694]
+        ],
+        "16云山路":[
+            [119.068376,27.614381],[119.064444,27.614638]
+        ],
+        "16霞帔路":[
+            [119.068618,27.616814],[119.064831,27.616472]
+        ],
+        "16希望路":[
+            [119.051891,27.622831],[119.053275,27.625692]
+        ],
+        "16学后路":[
+            [119.063542,27.621414],[119.062915,27.621548],[119.062303,27.621757],[119.060908,27.622484],[119.060485,27.623739],[119.060506,27.624276],[119.060420,27.624537]
+        ],
+        "16咏归路":[
+            [119.059396,27.621547],[119.058425,27.621952],[119.057126,27.622674]
+        ],
+        "16后田街":[
+            [119.075558,27.622067],[119.074989,27.622067],[119.074641,27.622252],[119.073380,27.621548],[119.073090,27.621287],[119.072071,27.621377],[119.071411,27.621325],[119.070204,27.620664]
+        ],
+        "16横城北":[
+            [119.070188,27.620658],[119.069834,27.623120]
+        ],
+        "16横城南":[
+            [119.070972,27.614831],[119.070526,27.618087],[119.070199,27.620630]
+        ],
+        "16竹坑路":[
+            [119.058650,27.616987],[119.058328,27.618912]
+        ],
+        "16西桥路":[
+            [119.058688,27.623285],[119.060812,27.624873]
+        ],
+        "16龙湫路":[
+            [119.068759,27.615983],[119.066726,27.615802]
+        ],
+        "16陵园路":[
+            [119.058212,27.619457],[119.059419,27.621525],[119.059559,27.621573]
+        ],
+        "16大济洋":[
+            [119.079159,27.604359],[119.079921,27.610258]
+        ],
+        "16西源路":[
+            [119.056001,27.627706],[119.055941,27.627920],[119.055748,27.628272],[119.055640,27.628918],[119.055597,27.629079],[119.055313,27.629531],[119.055249,27.630021],[119.055538,27.630733],
+            [119.056128,27.634773],[119.056075,27.637083],[119.057341,27.639392],[119.057405,27.639639],[119.057373,27.640267]
+        ],
+        "16菇市一":[
+            [119.058943,27.624872],[119.059946,27.625690]
+        ],
+        "16菇市二":[
+            [119.058289,27.625690],[119.059195,27.626422]
+        ],
+        "16菇市三":[
+            [119.057752,27.626350],[119.058659,27.626925]
+        ],
+        "16溪沿路":[
+            [119.075509,27.622439],[119.073787,27.623513],[119.072596,27.623979],[119.070531,27.623884],[119.069828,27.623128],[119.067896,27.621488],[119.065686,27.620537],[119.063707,27.620148]
+        ],
+        "16工业路":[
+            [119.049856,27.623294],[119.051106,27.625927],[119.051106,27.626075]
+        ],
+        "16曙光路":[
+            [119.023405,27.618551],[119.022644,27.618722],[119.016909,27.619535],[119.015815,27.619454],[119.012516,27.618822]
+        ],
+        "16会溪村":[
+            [119.035727,27.622367],[119.035121,27.622781],[119.032879,27.626146],[119.032455,27.626436],[119.030031,27.627553],[119.029547,27.627619],[119.028802,27.627334]
+        ],
+        "16八都中":[
+            [118.974696,27.612255],[118.972550,27.609536],[118.972454,27.609441],[118.970362,27.608538],[118.969949,27.608395]
+        ],
+        "16八都大":[
+            [118.968408,27.605337],[118.970521,27.609587]
+        ],
+        "16菊水街":[
+            [118.964658,27.601810],[118.963134,27.603502],[118.961010,27.608598],[118.960302,27.609801],[118.959256,27.610789]
+        ],
+        "16五余路":[
+            [119.005751,27.611655],[119.004786,27.611613],[119.002372,27.612254],[119.001202,27.612815],[119.000789,27.612891],[118.991675,27.612958]
+        ],
+        "16五都溪":[
+            [119.027579,27.621025],[119.027536,27.620782],[119.026860,27.619860],[119.025878,27.619124],[119.024982,27.618705],[119.023866,27.618596],[119.021356,27.618368],[119.020927,27.618353],
+            [119.017134,27.618762],[119.016447,27.618748],[119.015326,27.618577],[119.014961,27.618449],[119.014189,27.618140],[119.013497,27.617707],[119.012950,27.617137],[119.012381,27.615967],
+            [119.012142,27.615225],[119.011525,27.614179],[119.010956,27.613823],[119.009116,27.613157],[119.008505,27.613019],[119.008070,27.612953],[119.006981,27.612962],[119.004846,27.613309],
+            [119.004842,27.613314],[119.000963,27.615211],[118.996559,27.617364]
+        ],
+        "16五都五":[
+            [119.005848,27.609875],[119.005848,27.610275],[119.005719,27.610988],[119.005724,27.611183],[119.005751,27.611691],[119.005950,27.613127]
+        ],
+        "16余五路":[
+            [118.991624,27.612960],[118.991318,27.612941],[118.987906,27.612171],[118.982590,27.611049]
+        ],
+        "16金山大":[
+            [118.988444,27.602684],[118.987511,27.604281],[118.986878,27.603796],[118.984324,27.601106],[118.983595,27.600706],[118.981406,27.599898],[118.978391,27.599299],
+            [118.977544,27.599489],[118.975215,27.600336],[118.973467,27.601942],[118.972399,27.603288],[118.970983,27.605147],[118.969819,27.606088],[118.969025,27.606530]
+        ],
+        "16银山路":[
+            [118.988427,27.602672],[118.987714,27.602311],[118.987209,27.601916],[118.986560,27.601284],[118.985536,27.600167],[118.984855,27.599211],[118.983969,27.598413],[118.982188,27.597704],
+            [118.980305,27.597043],[118.979748,27.597020],[118.978938,27.597262],[118.975880,27.598736],[118.974410,27.599211],[118.973385,27.599858],[118.972323,27.601118]
+        ],
+        "16翠竹路":[
+            [118.977581,27.604429],[118.973493,27.601938],[118.972640,27.601473],[118.972318,27.601135]
+        ],
+        "16创新路":[
+            [118.976960,27.598266],[118.977550,27.599488],[118.977920,27.600519],[118.977904,27.600601],[118.977652,27.600985],[118.975807,27.603305]
+        ],
+        "16创业路":[
+            [118.981399,27.599926],[118.982987,27.595619]
+        ]
+
+
+
+
+
+
+
+    }
+    var linename = Name.substring(0,3)
+    var newname = homeid + linename
+    var newaaa= []
+    for(i in aaa[newname]){
+        newaaa.push(aaa[newname][i])
+    }
+    console.log(newaaa)
+    var reset = newaaa.shift()
+    var end = newaaa.pop()
+    var longandlat=long.split(",");
+    var map = new AMap.Map('container', {
+        resizeEnable: true, //是否监控地图容器尺寸变化
+        zoom: 16, //初始化地图层级
+        center: [longandlat[0],longandlat[1]] //初始化地图中心点
+    });
+    var polyline = new AMap.Polyline({
+        path: aaa[newname],
+        showDir: true,
+        strokeColor: "#28F",  //线颜色
+        strokeWeight: 6      //线宽
+    });
+    var marker = new AMap.Marker({
+        position: [longandlat[0],longandlat[1]],
+    });
+
+    if(homeid=="3") {
+        var marker1 = new AMap.Marker({
+            position: [reset[0], reset[1]],
+
+            icon: 'http://qingtian.vrplanner.cn:80/API/LS/qigreen.png'
+        });
+        var marker2 = new AMap.Marker({
+            position: [end[0], end[1]],
+            icon: 'http://qingtian.vrplanner.cn:80/API/LS/zhongred.png'
+        });
+    }
+
+    if(homeid=="14"){
+        var marker1 = new AMap.Marker({
+            position: [reset[0], reset[1]],
+
+            icon: 'http://jinyun.vrplanner.cn:80/API/LS/qigreen.png'
+        });
+        var marker2 = new AMap.Marker({
+            position: [end[0], end[1]],
+            icon: 'http://jinyun.vrplanner.cn:80/API/LS/zhongred.png'
+        });
+    }
+
+    if(homeid=="16"){
+        var marker1 = new AMap.Marker({
+            position: [reset[0], reset[1]],
+
+            icon: 'http://qingyuan.vrplanner.cn:80/API/LS/qigreen.png'
+        });
+        var marker2 = new AMap.Marker({
+            position: [end[0], end[1]],
+            icon: 'http://qingyuan.vrplanner.cn:80/API/LS/zhongred.png'
+        });
+    }
+
+
+
+
+
+    marker.setMap(map);
+    marker1.setMap(map);
+    marker2.setMap(map);
+    map.add(polyline)
+    map.setFitView()
+    $('.carousels').bxSlider({
+
+        slideWidth: 600,
+
+        adaptiveHeight: true,
+
+        startSlides: 0,
+
+        slideMargin: 10,
+        auto:true,
+        pause: 2000
+
+    });
+    $('#go').on('click',function () {
+        marker.markOnAMAP({
+            name:Name,
+            position:marker.getPosition()
+        })
+    })
+</script>
+
+
+</html>

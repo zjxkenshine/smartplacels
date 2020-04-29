@@ -1,0 +1,139 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.CultuinsurunitMapper">
+    <resultMap id="result" type="com.csdl.smartplacenew.information.Cultuinsurunit">
+        <result property="id" column="id"/>
+        <result property="name" column="name" />
+        <result property="pictureurl" column="pictureurl" />
+        <result property="status" column="status" />
+        <result property="userid" column="userid" />
+
+    </resultMap>
+
+    <insert id="addCultuinsurunit" >
+
+        insert into cultuinsurunit(name, pictureurl, status,userid)  values (#{name},#{pictureurl},#{status},#{userid})
+
+    </insert>
+
+
+    <select id="selectCultuinsurunitByName" resultMap="result">
+
+        select *  from cultuinsurunit
+
+        where
+        <if test="name!=null">
+            name like #{name} and
+        </if>
+
+        status=1
+
+        and userid=#{userid}
+
+
+    </select>
+
+
+    <select id="selectCultuinsurunitByName2" resultMap="result">
+
+        select *  from cultuinsurunit
+
+        where
+        <if test="name!=null">
+            name like #{name} and
+        </if>
+
+        status=1
+
+        and userid=#{userid}
+
+
+    </select>
+
+
+    <update id="delCultuinsurunit">
+
+        update cultuinsurunit set status=-1 where id=#{id}    and userid=#{userid}
+
+    </update>
+
+
+    <update id="updateCultuinsurunit">
+
+
+        update  cultuinsurunit set name=#{name} , pictureurl=#{pictureurl} where id=#{id}    and userid=#{userid}
+
+    </update>
+
+
+    <select id="getCultuinsurunitCount" resultType="integer">
+
+
+        select count(*)  from cultuinsurunit
+
+        where
+
+        <if test="name!=null">
+            name like #{name} and
+
+        </if>
+
+        status=1
+        and userid=#{userid}
+
+    </select>
+
+
+
+    <select id="getCultuinsurunitById" resultMap="result">
+
+        select *  from cultuinsurunit where id=#{id} and status=1 and userid=#{userid}
+
+    </select>
+
+
+    <select id="getCultuinsurunitById2" resultMap="result">
+
+        select *  from cultuinsurunit where id=#{id} and status=1     and userid=#{userid}
+
+    </select>
+
+    <select id="getCultuinsurunitByMaxId" resultMap="result">
+
+        select *  from cultuinsurunit where id=(select max(id)  from cultuinsurunit where status=1  and userid=#{userid})
+
+         and status=1   and userid=#{userid}
+
+    </select>
+
+    <select id="getCultuinsurunitByNameAndUserid" resultMap="result">
+
+
+        select *  from cultuinsurunit where
+
+        <if test="name!=null">
+
+            name like #{name} and
+
+        </if>
+        status=1
+
+        and
+
+        userid=#{userid}
+
+        order by id asc
+
+
+
+    </select>
+
+    <select id="getCultuinsurunit" resultMap="result">
+
+        select *  from cultuinsurunit where name like #{name} and userid=#{userid} and status=1
+
+    </select>
+
+</mapper>

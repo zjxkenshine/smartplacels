@@ -1,0 +1,84 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.FeedbackMapper">
+    <resultMap id="result" type="com.csdl.smartplacenew.pojo.Feedback">
+        <result property="id" column="id"/>
+
+        <result property="feedbackpath" column="feedbackpath" />
+        <result property="feedbacktype" column="feedbacktype" />
+        <result property="details" column="details" />
+        <result property="handle" column="handle" />
+        <result property="submitime" column="submitime" />
+        <result property="roadsisitua" column="roadsisitua" />
+        <result property="userid" column="userid" />
+
+    </resultMap>
+
+
+
+    <select id="findAllFeedback"  resultMap="result">
+
+
+        select *  from feedback
+
+         where
+
+         <if test="feedbackpath!=null">
+
+             feedbackpath like #{feedbackpath} and
+         </if>
+
+         userid=#{userid}
+
+         order by id desc
+
+
+    </select>
+
+
+
+
+    <select id="getAllCount"  resultType="integer">
+
+        select count(*) from feedback
+
+        where
+
+            <if test="feedbackpath!=null">
+
+                feedbackpath like #{feedbackpath} and
+            </if>
+   userid=#{userid}
+
+
+
+
+
+
+    </select>
+
+
+    <insert id="addFeedback">
+
+        insert  into feedback(feedbackpath,feedbacktype,details,handle,submitime,roadsisitua,userid)
+
+        values (#{feedbackpath},#{feedbacktype},#{details},#{handle},#{submitime},#{roadsisitua},#{userid})
+
+    </insert>
+
+
+    <update id="updateFeddBackFeedbackpath">
+
+
+        update feedback set feedbackpath =#{newfeedbackpath}
+
+        where feedbackpath=#{oldfeedbackpath}
+        and feedbacktype=#{feedbacktype}
+        and userid=#{userid}
+
+    </update>
+
+
+</mapper>

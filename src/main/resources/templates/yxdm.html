@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>影像地名</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .navigation {
+        width: 100%;
+        height: 50px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background: #d3d3d3;
+        display: flex;
+        align-items: center;
+    }
+
+    .navigation div {
+        width: 33%;
+        height: 50px;
+        line-height: 50px;
+        box-sizing: border-box;
+        font-size: 20px;
+    }
+
+    .navigation .back {
+        padding: 0 10px;
+    }
+
+    .navigation .name {
+        text-align: center;
+    }
+
+    .body {
+        padding: 50px 0 0;
+    }
+    .body a {
+        width: 100%;
+        height: 50px;
+        display: block;
+        color: #000;
+        line-height: 50px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        text-decoration: none;
+        border-bottom: 1px solid #535353;
+    }
+
+</style>
+
+<body>
+
+<span style="display: none" id="Name">[[${villagenameKK}]]</span>
+
+
+<span style="display: none" id="sanweishijing">[[${sanweishijing}]]</span>
+
+
+    <div class="navigation">
+        <div class="back">
+            <a href="/API/LS/Villagenumber/tt" style="text-decoration:none;color: black"><</a>  </div>
+        <div class="name">
+            影像地名
+        </div>
+    </div>
+    <div class="body">
+        <ul>
+            <li style="display: none">
+                <a href="" class="threeDimensional">
+                    三维实景
+                </a>
+            </li>
+            <li>
+                <a href="http://tv.cctv.com/v/v1/VIDEH090SF6HZ14JnknBaT8U181231.html">
+                    《中国影像方志》松阳篇
+                </a>
+            </li>
+            <li>
+                <a href="https://dwz.cn/tsGF6iGT?u=ecdeb025cb4b1a02">
+                    松阳传统村落保护和拯救老屋行动专题片
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    var sanweishijing = $('#sanweishijing').text()
+    $('.threeDimensional').attr('href',sanweishijing)
+    var aChild = $('.threeDimensional').attr('href')
+    console.log(aChild)
+    if (aChild == undefined || aChild == '') {
+        $('li').eq(0).css('display', 'none')
+    }
+    else {
+        $('li').eq(0).css('display', 'block')
+    }
+</script>
+
+</html>

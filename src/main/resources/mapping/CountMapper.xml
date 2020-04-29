@@ -1,0 +1,168 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdl.smartplacenew.mapper.CountMapper">
+    <resultMap id="result" type="com.csdl.smartplacenew.pojo.Count">
+        <result property="id" column="id"/>
+        <result property="name" column="name" />
+        <result property="count2" column="count2" />
+        <result property="monthlyvisits" column="monthlyvisits" />
+        <result property="type" column="type" />
+        <result property="status" column="status" />
+        <result property="yearlyvisits" column="yearlyvisits" />
+        <result property="userid" column="userid" />
+
+    </resultMap>
+
+
+    <select id="getPlateNumberCount"  resultMap="result">
+
+        select *  from count where
+        <if test="name!=null">
+            name like #{name} and
+        </if>
+        type=#{type}
+
+        and status=1
+
+        and userid=#{userid}
+
+        order by id desc
+
+    </select>
+
+
+    <select id="getCountByNameAndType"  resultMap="result">
+
+        select *  from count where name like #{name} and type=#{type}  and status=1 and userid=#{userid}
+
+
+    </select>
+
+
+
+    <update id="updatePlateNumCount" >
+
+       update count set monthlyvisits=monthlyvisits+1 , yearlyvisits=yearlyvisits+1
+
+       where  name like #{name} and type=#{type}  and userid=#{userid}
+
+
+
+    </update>
+
+
+
+    <update id="updatePlateNumStatus" >
+
+       update count set status=0  where  name=#{name} and type=#{type} and userid=#{userid}
+
+    </update>
+
+
+    <update id="updatePlateCount2">
+
+        update count set count2=count2+1 where name=#{name} and type=#{type}   and userid=#{userid}
+
+    </update>
+
+
+    <update id="updatePlateCount3">
+
+        update count set count2=count2-1 where name=#{name} and type=#{type}  and userid=#{userid}
+
+    </update>
+
+
+    <update id="updatePlateCount4">
+
+        update count set status=0 where name=#{name} and type=#{type} and userid=#{userid}
+
+    </update>
+
+
+    <select id="getCountOfAll" resultType="integer">
+
+        select count(*)  from count
+
+         where
+
+         <if test="name!=null">
+
+             name like #{name} and
+         </if>
+
+         type=#{type}
+
+          and status=1
+
+        and userid=#{userid}
+
+
+    </select>
+
+
+    <update id="updateMonthlyvisits">
+
+        update count set monthlyvisits=0 where  status=1
+
+    </update>
+
+    <select id="getAlCount" resultMap="result">
+
+        select  *  from count where status=1 and userid=#{userid}
+
+    </select>
+
+
+    <update id="updateCountName">
+
+        update count set  name=#{aftername}
+
+             where  name like #{oldname} and type=#{type}  and userid=#{userid}
+
+    </update>
+
+
+    <select id="getPlateNumberMonthlyvisits" resultType="integer">
+
+        select sum(yearlyvisits) from smartplacename.count where userid=#{userid} and  type='platenumber'
+ and status=1
+
+    </select>
+
+
+    <select id="getRoadMonthlyvisits" resultType="integer">
+
+        select sum(yearlyvisits) from smartplacename.count where userid=#{userid} and  type='road'
+ and status=1
+
+    </select>
+
+
+    <select id="getRoadNumberMonthlyvisits" resultType="integer">
+
+        select sum(yearlyvisits) from smartplacename.count where userid=#{userid} and  type='roadnumber'
+ and status=1
+
+    </select>
+
+
+    <select id="getScenicspotMonthlyvisits" resultType="integer">
+
+        select sum(yearlyvisits) from smartplacename.count where userid=#{userid} and  type='scenicspot'
+ and status=1
+
+    </select>
+
+
+    <select id="getVillageNumberMonthlyvisits" resultType="integer">
+
+        select sum(yearlyvisits) from smartplacename.count where userid=#{userid} and  type='villagenumber'
+ and status=1
+
+    </select>
+
+
+</mapper>
