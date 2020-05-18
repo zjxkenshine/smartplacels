@@ -16,6 +16,14 @@ public class ConfigBean {
 
     public static String imageVirtualPath="/res/image/";
 
+    public  static String tempRealPath= System.getProperty("user.dir")+ File.separator+"upload"+ File.separator+"temp"+ File.separator;
+
+    public static String tempVirtualPath="/res/temp/";
+
+    public  static String fileRealPath= System.getProperty("user.dir")+ File.separator+"upload"+ File.separator+"file"+ File.separator;
+
+    public static String fileVirtualPath="/res/file/";
+
     public  static String sourceRealPath= System.getProperty("user.dir")+ File.separator+"upload"+ File.separator+"source"+ File.separator;
 
     public static String sourceVirtualPath="/res/source/";
@@ -61,5 +69,13 @@ public class ConfigBean {
 
             }
         }
+
+        File file4=new File(tempRealPath);
+        if(!file4.exists()){
+            if(file4.mkdirs()){
+
+            }
+        }
+
     }
 }

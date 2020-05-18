@@ -22,7 +22,12 @@ public enum CodeMessage {
     ModelConverting("200", "模型正在转换"),
     ModelConverted("200", "模型转换完成"),
     ModelConvertFailed("400", "模型转换失败"),
-    UserLoginFailByLock("400", "您已被锁定");
+    UserLoginFailByLock("400", "您已被锁定"),
+    FileIsUploaded("0","该文件已上传"),
+    FileUploadedPart("1","该文件需要断点续传"),
+    FileIsNotUploaded("2","该文件从未上传"),
+    FileMergeSuccess("0","文件合并成功");
+
 
     private String code;
 

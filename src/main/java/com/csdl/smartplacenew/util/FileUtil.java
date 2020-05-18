@@ -112,16 +112,6 @@ public class FileUtil {
 		if (!file.exists()) {
 			System.err.println("file not found:" + file.getName());
 			System.err.println("Create a new file:" + file.getName());
-			try {
-				if (file.createNewFile()) {
-					System.out.println("Succeeded!");
-				} else {
-					System.err.println("Create file failed!");
-				}
-			} catch (IOException e) {
-				System.err.println("Create file failed!");
-				e.printStackTrace();
-			}
 		}
 		boolean result = file.setLastModified(currentTime);
 		if (!result) {

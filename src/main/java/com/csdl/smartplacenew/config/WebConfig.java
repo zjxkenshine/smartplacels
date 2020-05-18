@@ -95,6 +95,8 @@ public class WebConfig extends WebMvcConfigurationSupport {
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
 
         registry.addResourceHandler("/excel/get/**").addResourceLocations("file:"+ System.getProperty("user.dir")+ File.separator).setCachePeriod(1);
+        registry.addResourceHandler(ConfigBean.fileVirtualPath+"**").addResourceLocations("file:"+ ConfigBean.fileRealPath).setCachePeriod(1);
+        registry.addResourceHandler(ConfigBean.fileVirtualPath+"**").addResourceLocations("file:"+ ConfigBean.fileRealPath).setCachePeriod(1);
         registry.addResourceHandler(ConfigBean.imageVirtualPath+"**").addResourceLocations("file:"+ ConfigBean.imageRealPath).setCachePeriod(1);
         registry.addResourceHandler(ConfigBean.thumbnailVirtualPath+"**").addResourceLocations("file:"+ ConfigBean.thumbnailRealPath).setCachePeriod(1);
         registry.addResourceHandler(ConfigBean.sourceVirtualPath+"**").addResourceLocations("file:"+ ConfigBean.sourceRealPath).setCachePeriod(1);
