@@ -5,26 +5,26 @@ import lombok.Data;
 @Data
 public class Picture2 {
 
-    private Integer id;
+    private String[] urls;
+
+    private int id;
 
     private String url;
 
-    private Integer  platenumberId;  //门牌id
+    private int  platenumberId;  //门牌id
 
-    private Integer roadnumberId;  //路牌 id
+    private int roadnumberId;  //路牌 id
 
-    private Integer villagenumberId; //村牌id
+    private int villagenumberId; //村牌id
 
-    private Integer scenicspotId;//景区id
+    private int scenicspotId;//景区id
 
-    private Integer roadId;//道路id
+    private int roadId;//道路id
 
-    private Integer status;
+    private int status;
 
-    private Integer userId;
+    private int userId;
 
-    private Integer maintrecordsId;//维护id
-
-
+    private int maintrecordsId;//维护id
 
 }

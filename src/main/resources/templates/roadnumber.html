@@ -206,6 +206,8 @@
 
     <span style="display: none" id="RoadNumbercurrentUserId">[[${RoadNumbercurrentUserId}]]</span>
 
+    <span style="display: none" id="roadnumberid">[[${roadnumberid}]]</span>
+
     <span style="display: none" id="Name">[[${roadnumbername}]]</span>
 
     <span style="display: none" id="leftnumberUrl">[[${roadnumberleftnumberUrl}]]</span>
@@ -297,6 +299,13 @@
             维护反馈
         </div>
     </a>
+    <a id="roadnumberid1" href="/API/LS/Roadnumber/RoadNumberUpload">
+        <i class="iconfont">&#xe63c</i>
+        <div>
+            图片修改
+        </div>
+    </a>
+
 </div>
 </body>
 
@@ -1653,7 +1662,9 @@
 <script></script>
 <script>
     var homeid= $("#RoadNumbercurrentUserId").text()
-
+    var roadnumberid = $('#roadnumberid').text()
+    console.log(roadnumberid)
+    $('#roadnumberid1').attr('href','/API/LS/Roadnumber/RoadNumberUpload?roadnumberid='+roadnumberid)
     if(homeid == '3'){
         $('#home').attr('href','http://qingtian.zjdmwh.cn/')
     }
@@ -1680,7 +1691,6 @@
     }
 
 
-
     var min = $("#roadnumberMin").text()
     var max = $("#roadnumberMax").text()
     if(max == 'roadnumberMax'){
@@ -1705,32 +1715,32 @@
     var  rightplatenumberUrl=$("#rightplatenumberUrl").text();
 
     if(homeid=="3") {
-        $('#jt1').attr('href', 'http://qingtian.vrplanner.cn:80/API/LS/Roadnumber/hh?url=' + leftnumberUrl);
+        $('#jt1').attr('href', 'http://192.168.0.202:1234/API/Roadnumber/hh?url=' + leftnumberUrl);
 
-        $('#jt2').attr('href', 'http://qingtian.vrplanner.cn:80/API/LS/Roadnumber/hh?url=' + rightplatenumberUrl);
+        $('#jt2').attr('href', 'http://192.168.0.202:1234/API/Roadnumber/hh?url=' + rightplatenumberUrl);
     }
 
     if(homeid=="14"){
 
-        $('#jt1').attr('href', 'http://jinyun.vrplanner.cn:80/API/LS/Roadnumber/hh?url=' + leftnumberUrl);
+        $('#jt1').attr('href', 'http://192.168.0.202:1234/API/Roadnumber/hh?url=' + leftnumberUrl);
 
-        $('#jt2').attr('href', 'http://jinyun.vrplanner.cn:80/API/LS/Roadnumber/hh?url=' + rightplatenumberUrl);
+        $('#jt2').attr('href', 'http://192.168.0.202:1234/API/Roadnumber/hh?url=' + rightplatenumberUrl);
     }
 
     if(homeid=="15"){
 
-        $('#jt1').attr('href', 'http://songyang.vrplanner.cn:80/API/LS/Roadnumber/hh?url=' + leftnumberUrl);
+        $('#jt1').attr('href', 'http://192.168.0.202:1234/API/Roadnumber/hh?url=' + leftnumberUrl);
 
-        $('#jt2').attr('href', 'http://songyang.vrplanner.cn:80/API/LS/Roadnumber/hh?url=' + rightplatenumberUrl);
+        $('#jt2').attr('href', 'http://192.168.0.202:1234/API/Roadnumber/hh?url=' + rightplatenumberUrl);
     }
 
 
 
     if(homeid=="16"){
 
-        $('#jt1').attr('href', 'http://qingyuan.zjdmwh.cn:80/API/LS/Roadnumber/hh?url=' + leftnumberUrl);
+        $('#jt1').attr('href', 'http://qingyuan.zjdmwh.cn:80/API/Roadnumber/hh?url=' + leftnumberUrl);
 
-        $('#jt2').attr('href', 'http://qingyuan.zjdmwh.cn:80/API/LS/Roadnumber/hh?url=' + rightplatenumberUrl);
+        $('#jt2').attr('href', 'http://qingyuan.zjdmwh.cn:80/API/Roadnumber/hh?url=' + rightplatenumberUrl);
     }
 
     function is_weixn(){
@@ -1835,20 +1845,20 @@
         if(homeid=="3"){
             $(".carousels").append("<div style='width:100%;height: 170px;     display: flex;\n" +
                 "    justify-content: center;\n" +
-                "    align-items: center;' ><img style='width:100%;height: 100%; margin: 0 auto' src='http://qingtian.vrplanner.cn:80/API"+n+"'></div>");
+                "    align-items: center;' ><img style='width:100%;height: 100%; margin: 0 auto' src='http://192.168.0.202:1234/API"+n+"'></div>");
 
         }
 
         if(homeid=="14"){
             $(".carousels").append("<div style='width:100%;height: 170px;     display: flex;\n" +
                 "    justify-content: center;\n" +
-                "    align-items: center;' ><img style='width:100%;height: 100%; margin: 0 auto' src='http://jinyun.vrplanner.cn:80/API"+n+"'></div>");
+                "    align-items: center;' ><img style='width:100%;height: 100%; margin: 0 auto' src='http://192.168.0.202:1234/API"+n+"'></div>");
         }
 
         if(homeid=="15"){
             $(".carousels").append("<div style='width:100%;height: 170px;     display: flex;\n" +
                 "    justify-content: center;\n" +
-                "    align-items: center;' ><img style='width:100%;height: 100%; margin: 0 auto' src='http://songyang.vrplanner.cn:80/API"+n+"'></div>");
+                "    align-items: center;' ><img style='width:100%;height: 100%; margin: 0 auto' src='http://192.168.0.202:1234/API"+n+"'></div>");
         }
 
 
@@ -1856,7 +1866,7 @@
         if(homeid=="16"){
             $(".carousels").append("<div style='width:100%;height: 170px;     display: flex;\n" +
                 "    justify-content: center;\n" +
-                "    align-items: center;' ><img style='width:100%;height: 100%; margin: 0 auto' src='http://qingyuan.zjdmwh.cn:80/API"+n+"'></div>");
+                "    align-items: center;' ><img style='width:100%;height: 100%; margin: 0 auto' src='http://192.168.0.202:1234/API/LS"+n+"'></div>");
         }
 
 
@@ -1870,11 +1880,11 @@
 
      if(homeid=="3") {
 
-         $(".audio").append("<audio class='audioitem' id='chineseplayer' controls='controls'><source src='http://qingtian.vrplanner.cn:80/API" + s1 + "'  type='audio/mpeg' />");
+         $(".audio").append("<audio class='audioitem' id='chineseplayer' controls='controls'><source src='http://192.168.0.202:1234/API" + s1 + "'  type='audio/mpeg' />");
 
-         $(".audio").append("<audio class='audioitem' id='englishplayer' controls='controls'><source src='http://qingtian.vrplanner.cn:80/API" + s2 + "'  type='audio/mpeg' />");
+         $(".audio").append("<audio class='audioitem' id='englishplayer' controls='controls'><source src='http://192.168.0.202:1234/API" + s2 + "'  type='audio/mpeg' />");
 
-         $(".audio").append("<audio class='audioitem' id='dialectplayer' controls='controls'><source src='http://qingtian.vrplanner.cn:80/API" + s3 + "'  type='audio/mpeg' />");
+         $(".audio").append("<audio class='audioitem' id='dialectplayer' controls='controls'><source src='http://192.168.0.202:1234/API" + s3 + "'  type='audio/mpeg' />");
          if (s3 !== '') {
              $('.fangyan').css('display', 'block')
          }
@@ -1882,11 +1892,11 @@
 
      if(homeid=="14"){
 
-         $(".audio").append("<audio class='audioitem' id='chineseplayer' controls='controls'><source src='http://jinyun.vrplanner.cn:80/API" + s1 + "'  type='audio/mpeg' />");
+         $(".audio").append("<audio class='audioitem' id='chineseplayer' controls='controls'><source src='http://192.168.0.202:1234/API" + s1 + "'  type='audio/mpeg' />");
 
-         $(".audio").append("<audio class='audioitem' id='englishplayer' controls='controls'><source src='http://jinyun.vrplanner.cn:80/API" + s2 + "'  type='audio/mpeg' />");
+         $(".audio").append("<audio class='audioitem' id='englishplayer' controls='controls'><source src='http://192.168.0.202:1234/API" + s2 + "'  type='audio/mpeg' />");
 
-         $(".audio").append("<audio class='audioitem' id='dialectplayer' controls='controls'><source src='http://jinyun.vrplanner.cn:80/API" + s3 + "'  type='audio/mpeg' />");
+         $(".audio").append("<audio class='audioitem' id='dialectplayer' controls='controls'><source src='http://192.168.0.202:1234/API" + s3 + "'  type='audio/mpeg' />");
          if (s3 !== '') {
              $('.fangyan').css('display', 'block')
          }
@@ -1895,11 +1905,11 @@
 
     if(homeid=="15"){
 
-        $(".audio").append("<audio class='audioitem' id='chineseplayer' controls='controls'><source src='http://songyang.vrplanner.cn:80/API" + s1 + "'  type='audio/mpeg' />");
+        $(".audio").append("<audio class='audioitem' id='chineseplayer' controls='controls'><source src='http://192.168.0.202:1234/API" + s1 + "'  type='audio/mpeg' />");
 
-        $(".audio").append("<audio class='audioitem' id='englishplayer' controls='controls'><source src='http://songyang.vrplanner.cn:80/API" + s2 + "'  type='audio/mpeg' />");
+        $(".audio").append("<audio class='audioitem' id='englishplayer' controls='controls'><source src='http://192.168.0.202:1234/API" + s2 + "'  type='audio/mpeg' />");
 
-        $(".audio").append("<audio class='audioitem' id='dialectplayer' controls='controls'><source src='http://songyang.vrplanner.cn:80/API" + s3 + "'  type='audio/mpeg' />");
+        $(".audio").append("<audio class='audioitem' id='dialectplayer' controls='controls'><source src='http://192.168.0.202:1234/API" + s3 + "'  type='audio/mpeg' />");
         if (s3 !== '') {
             $('.fangyan').css('display', 'block')
         }
@@ -2570,11 +2580,11 @@
         var marker1 = new AMap.Marker({
             position: [reset[0], reset[1]],
 
-            icon: 'http://qingtian.vrplanner.cn:80/API/LS/qigreen.png'
+            icon: 'http://192.168.0.202:1234/API/qigreen.png'
         });
         var marker2 = new AMap.Marker({
             position: [end[0], end[1]],
-            icon: 'http://qingtian.vrplanner.cn:80/API/LS/zhongred.png'
+            icon: 'http://192.168.0.202:1234/API/zhongred.png'
         });
     }
 
@@ -2582,11 +2592,11 @@
         var marker1 = new AMap.Marker({
             position: [reset[0], reset[1]],
 
-            icon: 'http://jinyun.vrplanner.cn:80/API/LS/qigreen.png'
+            icon: 'http://192.168.0.202:1234/API/qigreen.png'
         });
         var marker2 = new AMap.Marker({
             position: [end[0], end[1]],
-            icon: 'http://jinyun.vrplanner.cn:80/API/LS/zhongred.png'
+            icon: 'http://192.168.0.202:1234/API/zhongred.png'
         });
     }
 
@@ -2594,11 +2604,11 @@
         var marker1 = new AMap.Marker({
             position: [reset[0], reset[1]],
 
-            icon: 'http://qingyuan.vrplanner.cn:80/API/LS/qigreen.png'
+            icon: 'http://192.168.0.202:1234/API/qigreen.png'
         });
         var marker2 = new AMap.Marker({
             position: [end[0], end[1]],
-            icon: 'http://qingyuan.vrplanner.cn:80/API/LS/zhongred.png'
+            icon: 'http://192.168.0.202:1234/API/zhongred.png'
         });
     }
 

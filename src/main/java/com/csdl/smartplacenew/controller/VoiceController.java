@@ -467,9 +467,7 @@ public class VoiceController {
     })
     @PostMapping("/updateMandarin")
     private ResultVO updateMandarin(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-        User user= UserSecurity.getCurrentUser(request,userMapper);
-        Integer currentUserId=user.getId();
+        Integer currentUserId=16;
 
         request.setCharacterEncoding("UTF-8");//解决乱码
 

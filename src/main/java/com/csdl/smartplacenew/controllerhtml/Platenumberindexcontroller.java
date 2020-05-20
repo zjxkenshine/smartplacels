@@ -302,7 +302,7 @@ public class Platenumberindexcontroller {
 
                 request.setAttribute("pictureUrl" + i, plateNumberVo.getPictureUrl().get(i));
 
-                request.setAttribute("pictureUrl" + i + i, "http://localhost:1243/API" + plateNumberVo.getPictureUrl().get(i));
+                request.setAttribute("pictureUrl" + i + i, "http://192.168.0.202:1243/API" + plateNumberVo.getPictureUrl().get(i));
 
             }
 
@@ -396,7 +396,7 @@ public class Platenumberindexcontroller {
 
                 request.setAttribute("pictureUrl" + i, plateNumberVo.getPictureUrl().get(i));
 
-                request.setAttribute("pictureUrl" + i + i, "http://localhost:1243/API" + plateNumberVo.getPictureUrl().get(i));
+                request.setAttribute("pictureUrl" + i + i, "http://192.168.0.202:1243/API" + plateNumberVo.getPictureUrl().get(i));
 
             }
 

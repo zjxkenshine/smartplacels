@@ -223,7 +223,7 @@ public class Roadcontroller {
 
                 request.setAttribute("roadpictureUrl" + i, plateNumberVo.getPictureUrl().get(i));
 
-                request.setAttribute("roadpictureUrl" + i + i, "http://localhost:1243/API" + plateNumberVo.getPictureUrl().get(i));
+                request.setAttribute("roadpictureUrl" + i + i, "http://192.168.0.202:1243/API" + plateNumberVo.getPictureUrl().get(i));
 
             }
 
@@ -326,7 +326,7 @@ public class Roadcontroller {
 
                 request.setAttribute("roadpictureUrl" + i, plateNumberVo.getPictureUrl().get(i));
 
-                request.setAttribute("roadpictureUrl" + i + i, "http://localhost:1243/API" + plateNumberVo.getPictureUrl().get(i));
+                request.setAttribute("roadpictureUrl" + i + i, "http://192.168.0.202:1243/API" + plateNumberVo.getPictureUrl().get(i));
 
             }
 

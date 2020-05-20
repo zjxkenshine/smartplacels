@@ -1,6 +1,7 @@
 package com.csdl.smartplacenew.mapper;
 
 import com.csdl.smartplacenew.pojo.Picture;
+import com.csdl.smartplacenew.pojo.Picture2;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -50,5 +51,9 @@ public interface PictureMapper {
 
     public void delPictureByMaintrecordsid(@Param("maintrecordsid") Integer maintrecordsid, @Param("userid") Integer userid);
 
+    //查询图片
+    List<String>  getPictures(Picture2 picture2);
 
+    //删除图片
+    void deletePictureRoadnumberId(int roadnumberid, int userid);
 }

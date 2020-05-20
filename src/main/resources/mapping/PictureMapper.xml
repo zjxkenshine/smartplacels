@@ -26,8 +26,15 @@
 
    </insert>
 
+    <delete id="deletePictureRoadnumberId">
+      delete from
+            picture
+      where
+            roadnumberid=#{roadnumberid} and userid=#{userid}
+    </delete>
 
-    <select id="getPictureById" resultMap="result">
+
+    <select id="getPictureByUrl" resultMap="result">
 
         select *  from picture where url=#{url} and status=1
     </select>
@@ -68,6 +75,37 @@
     <select id="getPictureByMaintreid" resultType="string">
 
         select url  from picture where maintrecordsid=#{maintrecordsid} and status=1 and userid=#{userid}
+
+    </select>
+
+    <select id="getPictures" resultType="string">
+        select
+            url
+        from
+            picture
+        where
+            status=1
+
+        <if test="platenumberId!=null and platenumberId!=''">
+            and platenumberid=#{platenumberId}
+        </if>
+        <if test="roadnumberId!=null and roadnumberId!=''">
+            and roadnumberid=#{roadnumberId}
+        </if>
+        <if test="villagenumberId!=null and villagenumberId!=''">
+            and villagenumberid=#{villagenumberId}
+        </if>
+        <if test="roadId!=null and roadId!=''">
+            and roadid=#{roadId}
+        </if>
+        <if test="scenicspotId!=null and scenicspotId!=''">
+            and scenicspotid=#{scenicspotId}
+        </if>
+        <if test="maintrecordsId!=null and maintrecordsId!=''">
+            and maintrecordsid=#{maintrecordsId}
+        </if>
+        and userid=#{userId}
+
 
     </select>
 
