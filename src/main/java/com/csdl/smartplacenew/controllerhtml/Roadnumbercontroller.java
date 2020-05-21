@@ -424,7 +424,7 @@ public class Roadnumbercontroller {
 
                 request.setAttribute("roadnumberpictureUrl" + i, plateNumberVo.getPictureUrl().get(i));
 
-                request.setAttribute("roadnumberpictureUrl" + i + i, "http://192.168.0.202:1234/API" + plateNumberVo.getPictureUrl().get(i));
+                request.setAttribute("roadnumberpictureUrl" + i + i, "http://192.168.0.202:1234/API/LS" + plateNumberVo.getPictureUrl().get(i));
 
             }
 
